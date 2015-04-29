@@ -1,0 +1,44 @@
+// Place all the styles related to the gigs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gig {
+  border-bottom: solid 1px #CCC;
+  padding:  5px 0;
+}
+
+.gig p {
+  margin: 4px 0;
+}
+
+.gig.hover {
+  background: #FAFAFA
+}
+
+.gig .admin {
+  display: none;
+}
+
+.gig.hover .admin {
+  display: inline;
+}
+
+.gigitt {
+  margin: 1px 0;
+}
+
+#user {
+  color: #0088cc
+}
+
+h4 {
+  padding:  1px 0;
+}
+
+.green {
+  color: #63a914;
+}
+
+.red {
+  color: #fa6158;
+}

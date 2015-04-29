@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: gigitt_development
+  pool: 5
+  username: justindoshay
+  password: N0m@rebs
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: gigitt_test
+  pool: 5
+  username: justindoshay
+  password: N0m@rebs
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: gigit_production
+  pool: 5
+  username: justindoshay
+  password: N0m@rebs
