@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 group :production do
   gem 'pg'
@@ -18,7 +19,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'paperclip'
 gem 'rails_12factor', group: :production
-gem 'ruby'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
