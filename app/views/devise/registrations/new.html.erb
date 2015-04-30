@@ -1,18 +1,17 @@
 <br>
 <legend>Sign up</legend>
-
+</br>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
   <div class="field">
-  <%= f.label :profile, "Profile" .titleize%><br />
+  <%= f.label :profile, "Profile Name" .titleize%>
   <%= f.text_field :profile %>
   </div>
     <%= f.input :email %>
     <%= f.input :password %>
     <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>Confirm (<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <%= f.button :submit, "Sign up" %>
+    <%= f.password_field :password, autocomplete: "off" %><br>
+    <%= f.button :submit, "Sign up" %></br>
 <% end %>
