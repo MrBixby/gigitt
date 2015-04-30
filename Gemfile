@@ -4,6 +4,7 @@ ruby '2.2.1'
 gem 'pg'
 gem 'rails', '4.2.1'
 
+gem 'newrelic_rpm'
 gem 'devise'
 gem 'simple_form'
 gem 'state_machine'
