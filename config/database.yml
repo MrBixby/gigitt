@@ -19,8 +19,8 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  host: ec2-54-163-227-108.compute-1.amazonaws.com
-  database: d47ch3h4v99h74
+  host: localhost
+  database: gigit_production
   pool: 5
-  username: u5jpr90em6sb2t
-  password: p3rumh1ro168dcad26caemeeot5
+  username: justindoshay
+  password: N0m@rebs
