@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'profiles/show'
 
-  default_url_options :host => "gigitt.herokuapp.com"
-
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   devise_scope :user do
