@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_12factor'
+gem "figaro"
 
 group :development do
   gem 'thin'
