@@ -20,7 +20,7 @@ production:
   adapter: postgresql
   encoding: utf8
   host: localhost
-  database: gigit_production
+  database: d47ch3h4v99h74
   pool: 5
   username: u5jpr90em6sb2t
   password: p3rumh1ro168dcad26caemeeot5
