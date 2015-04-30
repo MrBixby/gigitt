@@ -1,54 +1,31 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= current_user.profile %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-
-    <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-
-    <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <legend>About Me</legend>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zipcode %>
+    <%= f.input :email %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <legend>Security</legend>
+    <%= f.input :password %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.input :password_confirmation %>
+    <%= f.input :current_password %> <i>(we need your current password to confirm your changes)</i>
 
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel Account</h3>
+<legend><b>Cancel Account</b></legend>
 
 <p>Unhappy? <%= button_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
