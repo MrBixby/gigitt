@@ -87,5 +87,5 @@ Rails.application.configure do
    :authentication       => "plain",
   :enable_starttls_auto => true
 }
-Rails.application.routes.default_url_options[:host] = 'gigitt.com'
+
 end

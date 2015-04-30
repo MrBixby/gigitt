@@ -14,7 +14,5 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-
-    <%= f.input :password_confirmation %>
     <%= f.button :submit, "Sign up" %>
 <% end %>
