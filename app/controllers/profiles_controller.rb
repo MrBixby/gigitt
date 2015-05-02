@@ -1,9 +1,9 @@
 class ProfilesController < ApplicationController
-  def show
+  def user
     @user = User.find_by_profile(params[:id])
     if @user
       @gigs = @user.gigs.all
-      render action: :show
+      render action: :user
     else
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
         GigittMailer.gigitt_email(@user).deliver
 
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render :user, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
