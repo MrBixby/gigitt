@@ -1,13 +1,6 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  belongs_to :role
-  before_create :set_default_role
-
-  private
-  def set_default_role
-    self.role ||= Role.find_by_name('user')
-  end
 
   before_create :capitalize_names
   def capitalize_names
