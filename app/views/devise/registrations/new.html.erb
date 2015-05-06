@@ -2,6 +2,7 @@
 <legend>Sign up</legend>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  <%= f.label "Profile Type" %>
   <%= f.select :role, options_for_select(roles), label: "Your Role" %>
   <div class="field">
   <%= f.label :profile, "Profile Name" .titleize%>
