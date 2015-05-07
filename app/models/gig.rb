@@ -12,8 +12,7 @@ class Gig < ActiveRecord::Base
   validates :band, presence: true
 
   validates :price, presence: true,
-                              length: { minimum: 1 },
-                              length: { maximum: 8 }
+                              length: { minimum: 1 }
 
   validates :user_id, presence: true
 end
