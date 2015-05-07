@@ -14,7 +14,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_12factor'
 gem "figaro"
-gem "select2-rails"
 
 group :development do
   gem 'thin'

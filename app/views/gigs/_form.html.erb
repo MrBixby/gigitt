@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :user_id, collection: User.where("role = ?", "venue"),label: "Venue", label_method: :profile %>
+  <%= f.input :user_id, collection: User.where("role = ?", "venue"), label_method: :profile, label: "Venue" %>
   <%= f.input :event %>
   <%= f.input :date %>
-  <%= f.input :user_id, collection: User.where("role = ?", "band"),label: "Bands", label_method: :profile %>
+  <%= f.input :user_id, collection: User.where("role = ?", "band"), label_method: :profile, label: "Bands" %>
   <%= f.input :doors, {minute_step: 15}%>
   <%= f.input :showtime, {minute_step: 15} %>
   <%= f.input :age,
   :as => :grouped_select,
   :collection => [['Minimum Age', ['All Ages','18+', '21+']]],
   :group_method => :last %>
-  <%= f.input :price %>
+  <%= f.input :price, label: "Price $" %>
   <%= f.input :description %>
   <div class="form-actions">
     <%= f.button :submit %>
