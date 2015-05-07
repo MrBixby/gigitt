@@ -10,11 +10,10 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.input :user_id, collection: User.where("role = ?", "venue"),label_method: :profile %>
+  <%= f.input :user_id, collection: User.where("role = ?", "venue"),label: "Venues", label_method: :profile %>
   <%= f.input :event %>
   <%= f.input :date %>
-  <%= f.input :band %>
+  <%= f.input :user_id, collection: User.where("role = ?", "band"),label: "Bands", label_method: :profile %>
   <%= f.input :doors, {minute_step: 15}%>
   <%= f.input :showtime, {minute_step: 15} %>
   <%= f.input :age,
