@@ -1,0 +1,2 @@
+class FanController < ApplicationController
+end

@@ -9,6 +9,7 @@
 DEFAULT_INSECURE_PASSWORD = 'nomorebs'
 
 User.create({
+  role: "fan",
   profile: "Justin",
   email: "jdoshay@gigitt.com",
   password: DEFAULT_INSECURE_PASSWORD,
@@ -16,6 +17,7 @@ User.create({
 })
 
 User.create({
+  role: "fan",
   profile: "Ha",
   email: "hdoshay@gigitt.com",
   password: DEFAULT_INSECURE_PASSWORD,
@@ -23,6 +25,7 @@ User.create({
 })
 
 User.create({
+  role: "venue",
   profile: "Chain Reaction",
   email: "chain@reaction.com",
   password: DEFAULT_INSECURE_PASSWORD,
@@ -30,6 +33,7 @@ User.create({
 })
 
 User.create({
+  role: "band",
   profile: "Thrice",
   email: "thrice@band.com",
   password: DEFAULT_INSECURE_PASSWORD,

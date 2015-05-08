@@ -8,8 +8,6 @@ class Gig < ActiveRecord::Base
 
   validates :age, presence: true
 
-  validates :band, presence: true
-
   validates :price, presence: true,
                               length: { minimum: 1 }
 
