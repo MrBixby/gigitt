@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_12factor'
 gem "figaro"
+gem 'bootstrap-sass' #use bootstrap for pretty stuff
 
 group :development do
   gem 'thin'
