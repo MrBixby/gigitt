@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :bands
-  devise_for :venues
-  devise_for :promoters
-  devise_for :fans
   get 'profiles/user'
 
   devise_for :users, :controllers => { registrations: 'registrations' }

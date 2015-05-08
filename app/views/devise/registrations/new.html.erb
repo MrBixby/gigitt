@@ -2,17 +2,10 @@
 <legend>Sign up</legend>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <%= f.label "Account Type" %>
-  <%= f.select :role, options_for_select(roles), label: "Your Role" %>
 <div class="field">
-<% if User.where("role = ?", "venue") %>
+<%= f.input :role, collection: [["fan", "Fan"], ["venue", "Venue Owner"], ["band", "Band Member"]], label_method: :profile, label: "Role" %>
   <%= f.label :profile, "Venue Name" .titleize%>
   <%= f.text_field :profile %>
-  <% elsif User.where("role = ?", "band")%>
-  <%= f.label :profile, "Band Name" .titleize%>
-  <%= f.text_field :profile %>
-  <% else %>
-<% end %>
 </div>
     <%= f.input :email %>
     <%= f.input :password %>
