@@ -28,7 +28,7 @@ class GigsController < ApplicationController
   # POST /gigs.json
   def create
     @gig = Gig.new(gig_params)
-    @gig.user = current_user
+    @gig.user_id = current_user.id
 
     respond_to do |format|
       if @gig.save

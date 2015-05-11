@@ -2,7 +2,7 @@ class Gig < ActiveRecord::Base
 
   belongs_to :venue
   has_many :bands
-  has_many :users
+  has_one :user
 
   validates :description, presence: true,
                           length: { minimum: 8 }
