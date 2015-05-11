@@ -1,5 +1,5 @@
 class Band < ActiveRecord::Base
 
-  has_many :gig
-  has_many :fan
+  has_many :gigs
+  has_many :fans
 end

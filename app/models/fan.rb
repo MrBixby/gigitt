@@ -1,4 +1,4 @@
 class Fan < ActiveRecord::Base
 
-  has_many :band
+  has_many :bands
 end

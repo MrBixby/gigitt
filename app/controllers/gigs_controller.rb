@@ -17,7 +17,7 @@ class GigsController < ApplicationController
 
   # GET /gigs/new
   def new
-    @gig = current_user.gigs.new
+    @gig = Gig.new
   end
 
   # GET /gigs/1/edit
@@ -28,6 +28,7 @@ class GigsController < ApplicationController
   # POST /gigs.json
   def create
     @gig = Gig.new(gig_params)
+    @gig.user = current_user
 
     respond_to do |format|
       if @gig.save
