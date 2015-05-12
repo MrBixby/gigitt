@@ -7,9 +7,9 @@
             <%= f.label :role, "What brings you here?" %>
             <%= f.select :role, options_for_select( [["Fan", "fan"], ["Venue Owner", "venue"], ["Band Member", "band"]]), {}, { :class => 'form-control' } %>
             <%= f.label :profile, "Your Name"%>
-            <%= f.text_field :profile, placeholder: "Billy Bob", class: 'form-control' %>
-            <%= f.input :email %>
-            <%= f.input :password %>
+            <%= f.text_field :profile, placeholder: "Profile Name", class: 'form-control' %>
+            <%= f.input :email, placeholder: "name@email.com", class: 'form-control'  %>
+            <%= f.input :password, placeholder: "password", class: 'form-control'  %>
             <%= f.button :submit, "Sign up" %></br>
         <% end %>
     </div>
