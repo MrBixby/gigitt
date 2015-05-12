@@ -1,8 +1,7 @@
 class Gig < ActiveRecord::Base
 
-  belongs_to :venue
   has_many :bands
-  has_one :user
+  has_one :timeslot
 
   validates :description, presence: true,
                           length: { minimum: 8 }

@@ -17,6 +17,7 @@ validates :profile, presence: true,
                       message: 'Must be formated correctly.'
                     }
 
-  has_many :gigs
+  has_and_belongs_to_many :venues
+  has_and_belongs_to_many :bands
 
 end
