@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'profiles/user'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -11,6 +11,13 @@ Rails.application.routes.draw do
     get 'edit', to: 'devise/registrations#edit', as: :edit
     get 'gigitt', to: 'gigs#new', as: :gigitt
   end
+
+  resources :venues do
+  resources :timeslots
+  end
+
+  resources :bands
+  resources :fans
 
   resources :gigs
   root to: 'gigs#index'
