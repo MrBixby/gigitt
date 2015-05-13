@@ -59,5 +59,4 @@ class FanController < ApplicationController
     def fan_params
         params.require(:fan).permit(:name)
     end
-  end
 end
