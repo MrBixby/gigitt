@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'timeslots/index'
+
+  get 'timeslots/show'
+
+  get 'timeslots/new'
+
+  get 'timeslots/create'
+
+  get 'timeslots/edit'
+
+  get 'timeslots/update'
+
+  get 'timeslots/destroy'
+
   get 'profiles/user'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
