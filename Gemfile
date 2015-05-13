@@ -33,6 +33,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'foreman'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :assets do
@@ -70,4 +72,3 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 # Access an IRB console on exception pages or by using <%= console %> in views
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-
