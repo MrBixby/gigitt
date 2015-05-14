@@ -12,12 +12,12 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a href="/gigs" class="pull-left"><img style="height: 50px; padding-top: 5px;" img src="/img/logoMonster.png"></a>
+        <a href="/" class="pull-left"><img style="height: 50px; padding-top: 5px;" img src="/img/logoMonster.png"></a>
         <ul class="nav">
         </ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
-            <li><%= link_to "Home", gigs_path %></li>
+            <li><%= link_to "Gigs", gigs_path %></li>
             <li><%= link_to "Dashboard", current_user.profile %></li>
             <li><%= link_to current_user.profile, edit_path %></li>
             <li><%= link_to "Log Out", logout_path %></li>
