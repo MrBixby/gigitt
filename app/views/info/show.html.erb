@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<br>
+<p>
+  <b>Venue:</b>
+  <%= @gig.user.profile %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @gig.event %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @gig.date %>
+</p>
+
+<p>
+  <strong>Band(s):</strong>
+  <%= @gig.band %>
+</p>
+
+<p>
+  <strong>Doors:</strong>
+  <%= @gig.doors %>
+</p>
+
+<p>
+  <strong>Showtime:</strong>
+  <%= @gig.showtime %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @gig.age %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @gig.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gig.description %>
+</p>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_gig_path(@gig) %> |
+<% else %>
+<%= link_to 'Back', gigs_path %>
+<% end %>

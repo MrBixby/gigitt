@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :fans
 
   resources :gigs
-  root to: 'gigs#index'
+  root to: 'info#home'
 
   get '/:id', to: 'profiles#user'
 

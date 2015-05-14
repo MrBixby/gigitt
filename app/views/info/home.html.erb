@@ -1,2 +1,41 @@
-<h1>Info#home</h1>
-<p>Find me in app/views/info/home.html.erb</p>
+<div class="page-header"><div align="center">
+  <img src="/img/rsz_country.png">
+  <img src="/img/rsz_dj.png">
+  <img src="/img/rsz_jazz.png">
+  <img src="/img/rsz_punk.png">
+  <img src="/img/rsz_rap.png">
+  <img src="/img/rsz_rock.png">
+</div></div>
+
+<ul class="nav pull-right">
+<%= link_to '#gigitt', gigitt_path, class: "btn btn-success" %>
+</ul>
+
+<% @venues.each do |venue| %>
+  <div class="gig">
+    <div class="row">
+      <div class="span1">
+        profile img
+      </div>
+      <div class="span7">
+      <div class="gigitt">
+        <p><h2><span id="user"><%= link_to venue, venue.name + "Presents" %></span>-</h2></p>
+        <% venue.upcoming_gigs.each do |gig| %>
+          <p><h4><span class="red"><%= gig.timeslot.date %></span>&nbsp&nbsp<%= gig.event %>: <span class="green">$<%= gig.price %></span></h4></p>
+          <p><h5><%= gig.age %> | Doors: <%= gig.doors %> | Show: <%= gig.showtime %></h5></p>
+          <p></p>
+          <div class="meta">
+            <%= link_to time_ago_in_words(gig.created_at) + " ago", gig %>
+            <span class="admin">
+              <% if user_signed_in? %>
+                | <%= link_to 'Edit', edit_gig_path(gig) %> |
+                <%= link_to 'Delete', gig, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
