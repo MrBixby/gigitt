@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'info/home'
+
+  get 'info_controller/home'
+
   get 'profiles/user'
 
   devise_for :users, :controllers => { registrations: 'registrations' }

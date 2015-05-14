@@ -1,7 +1,7 @@
 class Gig < ActiveRecord::Base
 
-  has_many :bands
-  has_one :timeslot
+  has_and_belongs_to_many :bands
+  belongs_to :timeslot
 
   validates :description, presence: true,
                           length: { minimum: 8 }
@@ -13,7 +13,5 @@ class Gig < ActiveRecord::Base
 
   validates :price, presence: true,
                               length: { minimum: 1 }
-
-  validates :user_id, presence: true
 
 end

@@ -1,13 +1,16 @@
 class ProfilesController < ApplicationController
   def user
-    @user = User.find_by_profile(params[:id])
-    if @user
-      @gigs = @user.gigs.all
-      render action: :user
-    else
-      render file: 'public/404', status: 404, formats: [:html]
+      @user = User.find_by_profile(params[:id])
+      if @user
+        @band = @user.bands.all
+        @band.each do |band|
+          @gigs = band.gigs.all
+        end
+        render action: :user
+      else
+        render file: 'public/404', status: 404, formats: [:html]
+      end
     end
-  end
 
   def create
     @user = User.new(user_params)
