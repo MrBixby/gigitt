@@ -14,8 +14,18 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 body {
   padding-top: 40px;
+}
+
+a#gigittbutton {
+  margin-top: 14px;
+  padding: 5px 15px 5px 15px;
+  color: white;
+  text-shadow: 0 1px #777;
 }
 
 .alert {
