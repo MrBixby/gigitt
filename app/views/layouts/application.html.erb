@@ -17,10 +17,11 @@
         </ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
-            <li><%= link_to "Gigs", gigs_path %></li>
+            <li><%= link_to "Home", gigs_path %></li>
             <li><%= link_to "Dashboard", current_user.profile %></li>
             <li><%= link_to current_user.profile, edit_path %></li>
             <li><%= link_to "Log Out", logout_path %></li>
+            <a href="/gigitt" class="btn btn-success">#gigitt</a>
           <% else %>
             <li><%= link_to "Register", register_path %></li>
             <li><%= link_to "Log In", login_path %></li>
