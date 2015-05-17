@@ -1,11 +1,11 @@
 <h1>Past Event</h1>
 <% @venue.past_gigs.each do |gig| %>
   <div>
-    <ul>
-      <li><%= gig.timeslot.date %></li>
-      <li><%= gig.event %></li>
-      <li><%= gig.doors %></li>
-      <li><%= gig.setlist %></li>
+    <ul class="list-group">
+      <li class="list-group-item"><%= gig.timeslot.date %></li>
+      <a href="#" class="list-group-item"><%= gig.event %></a>
+      <li class="list-group-item"><%= gig.doors %></li>
+      <a href="#" class="list-group-item"><%= gig.setlist.date %></a>
     </ul>
   </div>
 <% end %>

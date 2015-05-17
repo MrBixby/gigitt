@@ -1,5 +1,11 @@
-<h1>Past Event</h1>
-<%= @present_gigs.date %>
-<%= @present_gigs.event %>
-<%= @present_gigs.doors %>
-<%= @present_gigs.setlist %>
+<h1>Present Event</h1>
+<% @venue.present_gigs.each do |gig| %>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"><%= gig.timeslot.date %></li>
+      <a href="#" class="list-group-item"><%= gig.event %></a>
+      <li class="list-group-item"><%= gig.doors %></li>
+      <a href="#" class="list-group-item"><%= gig.setlist.date %></a>
+    </ul>
+  </div>
+<% end %>
