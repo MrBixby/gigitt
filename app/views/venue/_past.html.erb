@@ -1,11 +1,8 @@
 <h1>Past Event</h1>
 <% @venue.past_gigs.each do |gig| %>
-  <div>
+  <div class="panel panel-default">
     <ul class="list-group">
-      <li class="list-group-item"><%= gig.timeslot.date %></li>
-      <a href="#" class="list-group-item"><%= gig.event %></a>
-      <li class="list-group-item"><%= gig.doors %></li>
-      <a href="#" class="list-group-item"><%= gig.setlist.date %></a>
+      <%= render partial: “gig_display”, locals: {gig: gig} %>
     </ul>
   </div>
 <% end %>
