@@ -1,2 +1,27 @@
-<h1>Band#show</h1>
-<p>Find me in app/views/band/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<br>
+<ul>
+  <b>Name:</b>
+  <li><%= @band.name %></li>
+  <ul>
+    <strong>Band Members</strong>
+      <%= @band.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+  </ul>
+  <li><%= @band.genre %></li>
+  <li><%= @band.description %></li>
+  <li><%= @band.city %></li>
+  <li><%= @band.zip %></li>
+  <li><%= @band.twitter %></li>
+  <li><%= @band.instagram %></li>
+  <li><%= @band.facebook %></li>
+  <li><%= @band.soundcloud %></li>
+  <li><%= @band.last_fm %></li>
+</ul>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_band_path(@band) %> |
+<% else %>
+<%= link_to 'Back', band_path %>
+<% end %>

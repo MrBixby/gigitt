@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514000119) do
+ActiveRecord::Schema.define(version: 20150518184128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bands", force: :cascade do |t|
     t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "genre"
+    t.text     "description"
+    t.string   "city"
+    t.integer  "zip"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "facebook"
+    t.string   "soundcloud"
+    t.string   "last_fm"
   end
 
   add_index "bands", ["user_id"], name: "index_bands_on_user_id", using: :btree
@@ -65,6 +74,20 @@ ActiveRecord::Schema.define(version: 20150514000119) do
     t.integer  "timeslot_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "timeslots", force: :cascade do |t|
     t.date     "date"
     t.time     "start_time"
@@ -79,10 +102,6 @@ ActiveRecord::Schema.define(version: 20150514000119) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "profile"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -95,8 +114,7 @@ ActiveRecord::Schema.define(version: 20150514000119) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
-    t.string   "gig_id"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -109,9 +127,19 @@ ActiveRecord::Schema.define(version: 20150514000119) do
 
   create_table "venues", force: :cascade do |t|
     t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.text     "description"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "instagram"
   end
 
   add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree

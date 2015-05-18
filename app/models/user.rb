@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  before_create :capitalize_names
-  def capitalize_names
-    self.profile = profile.camelcase
-  end
+  has_one :profile
+  has_and_belongs_to_many :venues
+  has_and_belongs_to_many :bands
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -16,8 +16,5 @@ validates :profile, presence: true,
                       with: /[a-zA-Z0-9-]+/,
                       message: 'Must be formated correctly.'
                     }
-
-  has_and_belongs_to_many :venues
-  has_and_belongs_to_many :bands
 
 end

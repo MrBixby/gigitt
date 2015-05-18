@@ -1,0 +1,27 @@
+<%= simple_form_for @venue %>
+  <% if @venue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@band.errors.count, "error") %> prohibited this venue from being saved:</h2>
+
+      <ul>
+      <% @venue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip %>
+  <%= f.input :phone %>
+  <%= f.input :email %>
+  <%= f.input :twitter %>
+  <%= f.input :facebook %>
+  <%= f.input :instagram %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

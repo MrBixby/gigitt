@@ -7,6 +7,7 @@ class BandController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
@@ -14,6 +15,7 @@ class BandController < ApplicationController
   end
 
   def create
+    @band.user_ids = [current_user.id]
     @band = Band.new(band_params)
 
     respond_to do |format|

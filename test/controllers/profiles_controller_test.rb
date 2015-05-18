@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProfilesControllerTest < ActionController::TestCase
   test "should get show" do
-    get :show, id: users(:justin).profile
+    get :show, id: users(:justin).username
     assert_response :success
     assert_template 'profiles/show'
   end
@@ -13,13 +13,13 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "that variables are assigned on successful profile viewing" do
-    get :show, id: users(:justin).profile
+    get :show, id: users(:justin).username
     assert assigns(:user)
     assert_not_empty assigns(:gigs)
   end
 
   test "only show the correct user's gigs" do
-    get :show, id: users(:justin).profile
+    get :show, id: users(:justin).username
     assigns(:gigs).each do |gig|
       assert_equal users(:justin), gig.user
   end
