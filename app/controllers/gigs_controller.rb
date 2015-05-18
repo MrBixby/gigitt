@@ -12,7 +12,9 @@ class GigsController < ApplicationController
   end
 
   def new
-    @gig = Gig.new
+    @timeslot = Timeslot.find(params[:timeslot_id])
+    @requests = @timeslot.gigrequests.all
+    @gig = @timeslot.build_gig
   end
 
   def create

@@ -1,2 +1,42 @@
-<h1>Timeslots#show</h1>
-<p>Find me in app/views/timeslots/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<br>
+<p>
+  <b>Date:</b>
+  <%= @timeslot.date %>
+</p>
+
+<p>
+  <b>Start Time:</b>
+  <%= @timeslot.start_time %>
+</p>
+
+<p>
+  <b>End Time:</b>
+  <%= @timeslot.end_time %>
+</p>
+
+<p>
+  <b>Openings:</b>
+  <%= @timeslot.openings %>
+</p>
+
+<p>
+  <b>Pay Amount:</b>
+  <%= @timeslot.pay_amount %>
+</p>
+
+<p>
+  <b>Paid Gig:</b>
+  <%= @timeslot.paid_gig %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @timeslot.notes %>
+</p>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_venue_timeslot_path(@timeslot) %> |
+<% else %>
+<%= link_to 'Back', venue_timeslot_path %>
+<% end %>
