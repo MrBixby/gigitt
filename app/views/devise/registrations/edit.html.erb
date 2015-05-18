@@ -5,9 +5,6 @@
   <%= devise_error_messages! %>
 
     <legend>About Me</legend>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :zipcode %>
     <%= f.input :email %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

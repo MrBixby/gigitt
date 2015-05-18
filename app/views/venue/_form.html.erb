@@ -1,4 +1,4 @@
-<%= simple_form_for @venue %>
+<%= simple_form_for @venue do |f| %>
   <% if @venue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@band.errors.count, "error") %> prohibited this venue from being saved:</h2>

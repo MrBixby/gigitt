@@ -1,0 +1,24 @@
+<%= simple_form_for @profile do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip %>
+  <%= f.input :facebook %>
+  <%= f.input :twitter %>
+  <%= f.input :instagram %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

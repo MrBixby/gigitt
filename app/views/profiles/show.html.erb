@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<br>
+<ul>
+  <b>User:</b>
+  <li><%= @profile.full_name %></li>
+  <li><%= @profile.city %></li>
+  <li><%= @profile.state %></li>
+  <li><%= @profile.zip %></li>
+  <li><%= @profile.facebook %></li>
+  <li><%= @profile.twitter %></li>
+  <li><%= @profile.instagram %></li>
+</ul>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% else %>
+<%= link_to 'Back', profile_path %>
+<% end %>

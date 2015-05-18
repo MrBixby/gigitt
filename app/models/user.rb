@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-validates :profile, presence: true,
+validates :username, presence: true,
                     uniqueness: true,
                     format: {
                       with: /[a-zA-Z0-9-]+/,

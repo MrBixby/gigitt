@@ -1,32 +1,60 @@
 class ProfilesController < ApplicationController
-  def user
-      @user = User.find_by_profile(params[:id])
-      if @user
-        @band = @user.bands.all
-        @band.each do |band|
-          @gigs = band.gigs.all
-        end
-        render action: :user
-      else
-        render file: 'public/404', status: 404, formats: [:html]
-      end
-    end
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
+
+  def show
+    @profile = Profile.find(params[:id])
+  end
+
+  def new
+    @profile = current_user.build_profile
+  end
 
   def create
-    @user = User.new(user_params)
+    @profile = current_user.build_profile(profile_params)
 
     respond_to do |format|
-      if @user.save
+      if @profile.save
 
-        # Sends email to user when user is created.
-        GigittMailer.gigitt_email(@user).deliver
-
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :user, status: :created, location: @user }
+        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.json { render :profile, status: :created, location: @profile }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+
+    respond_to do |format|
+      if @profile.update(profile_params)
+
+        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.json { render :profile, status: :updated, location: @profile }
+      else
+        format.html { render :new }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: 'Profile was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def profile_params
+    params.require(:profile).permit(:first_name, :last_name, :city, :state, :zip, :facebook, :twitter, :instagram )
   end
 end

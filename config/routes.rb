@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'info_controller/home'
 
-  get 'profiles/user'
-
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   devise_scope :user do
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
     get 'gigitt', to: 'gigs#new', as: :gigitt
   end
 
+  resources :profiles, only: [:new, :show, :edit, :update, :create, :destroy]
   resources :venues do
   resources :timeslots
   end
@@ -25,7 +24,5 @@ Rails.application.routes.draw do
 
   resources :gigs
   root to: 'info#home'
-
-  get '/:id', to: 'profiles#user'
 
 end
