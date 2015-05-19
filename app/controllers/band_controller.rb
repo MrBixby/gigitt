@@ -7,7 +7,7 @@ class BandController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new

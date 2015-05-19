@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  has_one :fan
   has_one :profile
   has_and_belongs_to_many :venues
   has_and_belongs_to_many :bands
