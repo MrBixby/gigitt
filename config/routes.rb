@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:new, :show, :edit, :update, :create, :destroy]
+  resources :dashboard, only: [:band_dashboard, :fan_dashboard, :venue_dashboard]
   resources :venues do
   resources :timeslots
   end
