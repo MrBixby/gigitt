@@ -4,6 +4,8 @@
         <legend>Sign up</legend>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
+            <%= f.label "Select Your Account Type" %>
+            <%= f.select :role, options_for_select(resource.role_options), {}, { :class => 'form-control' } %>
             <%= f.label :username, "User Name"%>
             <%= f.text_field :username, placeholder: "User Name", class: 'form-control' %>
             <%= f.input :email, placeholder: "name@email.com", class: 'form-control'  %>

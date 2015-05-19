@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :venues
   has_and_belongs_to_many :bands
 
+  def role_options
+    [["Venue Manager", "venue"], ["Fan", "fan"], ["Musician", "musician"]]
+  end
+
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
