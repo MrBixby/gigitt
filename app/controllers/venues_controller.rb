@@ -1,4 +1,4 @@
-class VenueController < ApplicationController
+class VenuesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
@@ -14,8 +14,7 @@ class VenueController < ApplicationController
   end
 
   def create
-    @venue = Venue.new(venue_params)
-    @venue.user_id = current_user.id
+    @venue = current_user.venues.create(venue_params)
 
     respond_to do |format|
       if @venue.save
@@ -57,6 +56,6 @@ class VenueController < ApplicationController
     end
 
   def venue_params
-      params.require(:venue).permit(:name, :user_ids => [])
+      params.require(:venue).permit(:name, :description, :address, :city, :state, :zip, :phone, :email, :twitter, :facebook, :instagram, :user_ids => [])
   end
 end

@@ -1,4 +1,4 @@
-class FanController < ApplicationController
+class FansController < ApplicationController
     before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
     before_action :set_fan, only: [:show, :edit, :update, :destroy]
 
