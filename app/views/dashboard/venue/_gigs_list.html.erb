@@ -1,0 +1,16 @@
+<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+    <li><a href="#past_gigs" data-toggle="tab">Past</a></li>
+    <li class="active"><a href="#present_gigs" data-toggle="tab">Present</a></li>
+    <li><a href="#future_gigs" data-toggle="tab">Future</a></li>
+</ul>
+<div id="my-tab-content" class="tab-content">
+    <div class="tab-pane" id="past_gigs">
+        <%= render 'dashboard/venue/past' %>
+    </div>
+    <div class="tab-pane active" id="present_gigs">
+        <%= render 'dashboard/venue/present' %>
+    </div>
+    <div class="tab-pane" id="future_gigs">
+        <%= render 'dashboard/venue/future' %>
+    </div>
+</div>
