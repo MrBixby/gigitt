@@ -8,21 +8,12 @@ class Venue < ActiveRecord::Base
                       uniqueness: true,
             length: { maximum: 60 }
 
-  def upcoming_gigs
-    openings = self.timeslots.where('date >= ?', Date.today)
-    gig_list(openings)
-  end
-  def past_gigs
-    openings = self.timeslots.where('date <= ?', 1.week.ago)
-    gig_list(openings)
-  end
-  def present_gigs
-    openings = self.timeslots.where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now)
-    gig_list(openings)
-  end
-  def future_gigs
-    openings = self.timeslots.where('date <= ?', 1.week.from_now)
-    gig_list(openings)
+  ["past", "present", "future", "upcoming"].each do |action|
+    define_method ("#{action}_gigs") do
+      openings = self.timeslots.send("#{action}")
+      gigs = gig_list(openings)
+      return gigs
+    end
   end
 
   private

@@ -1,7 +1,7 @@
 <% @venue.future_gigs.each do |gig| %>
   <div class="panel panel-default">
     <ul class="list-group">
-      <%= render partial: “gig_display”, locals: {gig: gig} %>
+      <%= display_gig(gig, :full) %>
     </ul>
   </div>
 <% end %>
