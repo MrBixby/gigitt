@@ -17,6 +17,7 @@ gem "figaro"
 gem 'bootstrap-sass' #use bootstrap for pretty stuff
 gem 'foundation-rails'
 gem 'puma'
+gem 'pry-rails'
 
 group :development do
   gem 'thin'

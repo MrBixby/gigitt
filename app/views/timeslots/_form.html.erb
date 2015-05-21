@@ -1,4 +1,4 @@
-<%= simple_form_for @timeslot %>
+<%= simple_form_for [@venue, @timeslot] do |f| %>
   <% if @timeslot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@timeslot.errors.count, "error") %> prohibited this timeslot from being saved:</h2>
@@ -10,12 +10,11 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :band %>
   <%= f.input :date %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%= f.input :openings %>
-  <%= f.input :paid_amount %>
+  <%= f.input :pay_amount %>
   <%= f.input :paid_gig %>
   <%= f.input :notes %>
   <div class="form-actions">

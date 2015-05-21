@@ -16,9 +16,7 @@
       <div class="span7">
       <div class="gigitt">
         <p><h2><span id="user"><%= link_to venue.name + " Presents", venue %></span>-</h2></p>
-        <% venue.upcoming_gigs.each do |gig| %>
-          <%= display_gig(gig, :full) %>
-        <% end %>
+          <%= display_gigs(venue.upcoming_gigs, :short) %>
         </div>
       </div>
     </div>
