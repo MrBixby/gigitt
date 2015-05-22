@@ -8,37 +8,67 @@
 
 DEFAULT_INSECURE_PASSWORD = 'nomorebs'
 
-User.create({
-  role: "fan",
-  username: "Justin",
+user = User.create({
+  profile: "Justin",
   email: "jdoshay@gigitt.com",
   password: DEFAULT_INSECURE_PASSWORD,
   password_confirmation: DEFAULT_INSECURE_PASSWORD
 })
 
-User.create({
-  role: "fan",
-  username: "Ha",
-  email: "hdoshay@gigitt.com",
-  password: DEFAULT_INSECURE_PASSWORD,
-  password_confirmation: DEFAULT_INSECURE_PASSWORD
+venue = Venue.create({
+  name: "Chain Reaction",
+  user_id: user.id
 })
 
-User.create({
-  role: "venue",
-  username: "Chain Reaction",
-  email: "chain@reaction.com",
-  password: DEFAULT_INSECURE_PASSWORD,
-  password_confirmation: DEFAULT_INSECURE_PASSWORD
+slot1 = venue.timeslots.create({
+  date: 1.week.from_now,
+  start_time: "07:00 PM".to_time,
+  end_time: "09:00 PM".to_time,
+  openings: 2,
+  pay_amount: 100.00,
+  paid_gig: true,
+  notes: "Looking for great Punk Rock"
 })
 
-User.create({
-  role: "musician",
-  username: "Thrice",
-  email: "thrice@band.com",
-  password: DEFAULT_INSECURE_PASSWORD,
-  password_confirmation: DEFAULT_INSECURE_PASSWORD
+slot2 = venue.timeslots.create({
+  date: 1.week.ago,
+  start_time: "07:00 PM".to_time,
+  end_time: "09:00 PM".to_time,
+  openings: 2,
+  pay_amount: 100.00,
+  paid_gig: true,
+  notes: "Looking for great Punk Rock"
 })
+
+slot3 = venue.timeslots.create({
+  date: 2.weeks.from_now,
+  start_time: "07:00 PM".to_time,
+  end_time: "09:00 PM".to_time,
+  openings: 2,
+  pay_amount: 100.00,
+  paid_gig: true,
+  notes: "Looking for EDM DJ's"
+})
+
+gig1 = slot1.create_gig({
+  event: "Punk it up",
+  doors: "06:00 PM".to_time,
+  showtime: "07:00 PM".to_time,
+  age: "21 and Up",
+  price: "$15 presale, $20 at the door",
+  description: "Punk rock rules!"
+})
+
+gig2 = slot2.create_gig({
+  event: "Punk it up",
+  doors: "06:00 PM".to_time,
+  showtime: "07:00 PM".to_time,
+  age: "21 and Up",
+  price: "$15 presale, $20 at the door",
+  description: "Punk rock rules!"
+})
+
+
 
 justin = User.find_by_email('jdoshay@gigitt.com')
 ha   = User.find_by_email('hdoshay@gigitt.com')
