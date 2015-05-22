@@ -1,0 +1,13 @@
+<h1>My Dashboard</h1>
+
+<% unless @venue %>
+<h2> No Venue! </h2>
+<%= link_to "Add Venue", new_venue_path %>
+<% else %>
+<div class="container">
+    <div id="content">
+    <%= render 'dashboard/venue/gigs_list' %>
+    <%= render 'dashboard/venue/setlist_planning' %>
+    </div>
+</div>
+<% end %>
