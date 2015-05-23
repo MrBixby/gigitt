@@ -10,12 +10,12 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :date %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
+  <%= f.input :date, :as => :date_picker %>
+  <%= f.input :start_time, :as => :time_picker, input_html: {data: {date_options: {stepping: 15}}} %>
+  <%= f.input :end_time, :as => :time_picker %>
   <%= f.input :openings %>
-  <%= f.input :pay_amount %>
   <%= f.input :paid_gig %>
+  <%= f.input :pay_amount %>
   <%= f.input :notes %>
   <div class="form-actions">
     <%= f.button :submit %>

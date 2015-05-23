@@ -20,7 +20,7 @@ class TimeslotsController < ApplicationController
 
     respond_to do |format|
       if @timeslot.save
-        format.html { redirect_to @timeslot, notice: 'Timeslot was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Timeslot was successfully created.' }
         format.json { render :show, status: :created, location: @timeslot }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class TimeslotsController < ApplicationController
     @timeslot = Timeslot.find(params[:id])
     respond_to do |format|
       if @timeslot.update(timeslot_params)
-        format.html { redirect_to @timeslot, notice: 'Timeslot was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Timeslot was successfully updated.' }
         format.json { render :show, status: :ok, location: @timeslot }
       else
         format.html { render :edit }
@@ -58,6 +58,10 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:date, :start_time, :end_time, :openings, :pay_amount, :paid_gig, :notes, :venue_id )
+    params.require(:timeslot).permit(:date, :start_time, :end_time, :openings,
+    :pay_amount, :paid_gig, :notes, :venue_id,
+    :gig_attributes => [:event, :doors, :showtime, :age, :price, :description,
+    :is_final, :band_ids =>[]
+    ] )
   end
 end

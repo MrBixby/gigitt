@@ -1,7 +1,9 @@
 class Timeslot < ActiveRecord::Base
   belongs_to :venue
-  has_many :gigrequests
-  has_one :gig
+  has_many :gigrequests, dependent: :destroy
+  has_one :gig, dependent: :destroy
+
+  accepts_nested_attributes_for :gig, update_only: true
 
   validates :date, presence: true
 
