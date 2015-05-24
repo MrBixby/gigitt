@@ -2,7 +2,6 @@
     <ul class="list-group">
       <li class="list-group-item"><%= gig.timeslot.date %></li>
       <li class="list-group-item"><a href="#" ><%= gig.event %></a></li>
-      <li class="list-group-item"><%= gig.doors %></li>
-      <%= render partial: "setlist", locals: {gig: gig} %>
+      <%= render partial: "shared/setlist", locals: {gig: gig} %>
     </ul>
   </div>

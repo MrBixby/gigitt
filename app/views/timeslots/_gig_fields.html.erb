@@ -1,0 +1,9 @@
+<%= f.input :event, label: "Event Name" %>
+<%= f.input :age,
+:as => :grouped_select,
+:collection => [['Minimum Age', ['All Ages','18+', '21+']]],
+:group_method => :last %>
+<%= f.input :price, label: "Ticket Price" %>
+<%= f.input :description %>
+<%= f.input :band_ids, collection: @timeslot.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
+<%= f.input :is_final, as: :boolean %>

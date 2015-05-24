@@ -6,11 +6,11 @@ module ApplicationHelper
     unless gigs.empty?
       if disp == :short
         gigs.each do |gig|
-          render "shared/gig_sm", locals: {gig:gig}
+          render "shared/gig_sm", gig: gig
         end
       else
         gigs.each do |gig|
-          render "shared/gig_full", locals: {gig:gig}
+          render "shared/gig_full", gig: gig
         end
       end
     else
@@ -19,7 +19,7 @@ module ApplicationHelper
       else
         content_tag(:h3, "Looks like you have no gigs!") + \
         link_to("Create a Timeslot", new_venue_timeslot_path(@venue), html_options = {class: "btn btn-success", role: "button"})
-      end     
+      end
     end
   end
 end

@@ -12,6 +12,7 @@ class TimeslotsController < ApplicationController
   def new
     @venue = Venue.find(params[:venue_id])
     @timeslot = @venue.timeslots.new
+    @timeslot.gig = @timeslot.build_gig
   end
 
   def create
@@ -30,7 +31,8 @@ class TimeslotsController < ApplicationController
   end
 
   def edit
-    @timeslot = Timeslot.find(params[:id])
+    @venue = Venue.find(params[:venue_id])
+    @timeslot = @venue.timeslots.find(params[:id])
   end
 
   def update
@@ -58,9 +60,9 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:date, :start_time, :end_time, :openings,
+    params.require(:timeslot).permit(:date, :start_time, :doors, :openings,
     :pay_amount, :paid_gig, :notes, :venue_id,
-    :gig_attributes => [:event, :doors, :showtime, :age, :price, :description,
+    gig_attributes: [:id, :event, :age, :price, :description,
     :is_final, :band_ids =>[]
     ] )
   end
