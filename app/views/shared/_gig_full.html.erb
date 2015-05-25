@@ -1,7 +1,11 @@
   <div class="panel panel-default">
     <ul class="list-group">
-      <li class="list-group-item"><%= gig.timeslot.date %></li>
-      <li class="list-group-item"><a href="#" ><%= gig.event %></a></li>
+      <li class="list-group-item">
+        <%= gig.timeslot.date %>
+      </li>
+      <li class="list-group-item">
+        <a href="#"><%= gig.event %> </a>
+      </li>
       <%= render partial: "shared/setlist", locals: {gig: gig} %>
     </ul>
   </div>

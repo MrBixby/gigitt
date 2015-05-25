@@ -13,10 +13,13 @@ class Timeslot < ActiveRecord::Base
   validates :doors, presence: true
 
   scope :upcoming, -> {where('date >= ?', Date.today)}
-  scope :pending, -> {where.not(id: Gig.select(:timeslot_id))}
+  scope :pending, -> {joins(:gig).where('is_final = ?', false)}
+  scope :finalized, -> {joins(:gig).where('is_final = ?', true)}
   scope :past, -> {where('date <= ?', 1.week.ago)}
   scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now)}
   scope :future, -> {where('date <= ?', 1.week.from_now)}
+
+
 
   def band_options
     b = self.bands.pluck("id", "name")
