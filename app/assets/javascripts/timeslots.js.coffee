@@ -9,3 +9,7 @@ jQuery ->
       $('#timeslot_pay_amount').show()
     else
       $('#timeslot_pay_amount').hide()
+
+  $('#band-multi-select').select2({
+      placeholder: "Select Bands"
+    })
