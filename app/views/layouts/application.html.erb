@@ -21,9 +21,6 @@
             <li><%= link_to "Dashboard", dashboard_path %></li>
             <li><%= link_to current_user.username, edit_path %></li>
             <li><%= link_to "Log Out", logout_path %></li>
-            <li>
-              <a href="/gigitt" id="gigittbutton" class="btn btn-success">#gigitt</a>
-            </li>
           <% else %>
             <li><%= link_to "Register", register_path %></li>
             <li><%= link_to "Log In", login_path %></li>

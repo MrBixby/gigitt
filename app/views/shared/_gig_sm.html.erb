@@ -1,5 +1,5 @@
 <p><h4><span class="red"><%= gig.timeslot.date %></span>&nbsp&nbsp<%= gig.event %>: <span class="green">$<%= gig.price %></span></h4></p>
-<p><h5><%= gig.age %> | Doors: <%= gig.doors %> | Show: <%= gig.showtime %></h5></p>
+<p><h5><%= gig.age %> | Doors: <%= gig.timeslot.doors %> | Show: <%= gig.timeslot.start_time %></h5></p>
 <p></p>
 <div class="meta">
   <%= link_to time_ago_in_words(gig.created_at) + " ago", gig %>
@@ -7,6 +7,6 @@
     <% if user_signed_in? %>
       | <%= link_to 'Edit', edit_gig_path(gig) %> |
       <%= link_to 'Delete', gig, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </span>
-  </div>
+    <% end %>
+  </span>
+</div>
