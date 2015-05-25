@@ -17,12 +17,12 @@ class Timeslot < ActiveRecord::Base
   scope :finalized, -> {joins(:gig).where('is_final = ?', true)}
   scope :past, -> {where('date <= ?', 1.week.ago)}
   scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now)}
-  scope :future, -> {where('date <= ?', 1.week.from_now)}
+  scope :future, -> {where('date >= ?', 1.week.from_now)}
 
 
 
   def band_options
-    b = self.bands.pluck("id", "name")
+    b = self.bands.pluck("name", "id")
     if b.empty?
       return ["No Bands Available"]
     end

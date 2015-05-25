@@ -20,7 +20,9 @@ class Venue < ActiveRecord::Base
   def gig_list(openings)
     gigs = []
     openings.each do |t|
-      gigs << t.gig
+      if t.gig.is_final
+        gigs << t.gig
+      end
     end
     return gigs.compact
   end
