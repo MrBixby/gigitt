@@ -5,5 +5,5 @@
 :group_method => :last %>
 <%= f.input :price, label: "Ticket Price" %>
 <%= f.input :description %>
-<%= f.input :band_ids, collection: @timeslot.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
-<%= f.input :is_final, as: :boolean %>
+<%= f.input :band_ids, label: "Bands", collection: @timeslot.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
+<%= f.input :is_final, label: "Finalize Gig?", as: :boolean %>

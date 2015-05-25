@@ -48,6 +48,20 @@ class TimeslotsController < ApplicationController
     end
   end
 
+  def finalize
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.gig.is_final = true
+    respond_to do |format|
+      if @timeslot.save
+        format.html { redirect_to dashboard_path, notice: 'Timeslot was finalized.'}
+        format.json { render :show, status: :ok, location: @timeslot }
+      else
+        format.html { render :edit }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   def destroy
     @timeslot.destroy
     @timeslot = Timeslot.find(params[:id])
