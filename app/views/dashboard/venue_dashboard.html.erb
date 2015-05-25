@@ -1,13 +1,13 @@
-<h1>My Dashboard</h1>
-
-<% unless @venue %>
-<h2> No Venue! </h2>
-<%= link_to "Add Venue", new_venue_path %>
+<% if @venue %>
+  <div class="container">
+    <h1><%= @venue.name %> Dashboard</h1>
+    <%= render 'dashboard/venue/menu_bar' %>
+      <div id="content">
+      <%= render 'dashboard/venue/gigs_list' %>
+      <%= render 'dashboard/venue/setlist_planning' %>
+      </div>
+  </div>
 <% else %>
-<div class="container">
-    <div id="content">
-    <%= render 'dashboard/venue/gigs_list' %>
-    <%= render 'dashboard/venue/setlist_planning' %>
-    </div>
-</div>
+  <h2> No Venue! </h2>
+  <%= link_to "Add Venue", new_venue_path %>
 <% end %>
