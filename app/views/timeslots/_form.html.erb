@@ -10,13 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :date %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :openings %>
-  <%= f.input :pay_amount %>
+  <%= f.input :date, :as => :date_picker, label: "Event Date" %>
+  <%= f.input :doors, :as => :time_picker, label: "Doors Open" %>
+  <%= f.input :start_time, :as => :time_picker, label: "Showtime", input_html: {data: {date_options: {stepping: 15}}} %>
+  <%= f.input :openings, label: "Band Openings" %>
   <%= f.input :paid_gig %>
+  <%= f.input :pay_amount, wrapper: :vertical_input_group, wrapper_html: { id: 'timeslot_pay_amount', style: 'display: none' } do %>
+    <span class="input-group-addon">$</span>
+    <%= f.input_field :pay_amount, class: "form-control" %>
+  <% end %>
   <%= f.input :notes %>
+  <%= f.simple_fields_for :gig do |builder| %>
+    <%= render 'gig_fields', f: builder %>
+  <% end %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

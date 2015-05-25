@@ -14,8 +14,14 @@
         profile img
       </div>
       <div class="span7">
-      <div class="gigitt">
-        <p><h2><span id="user"><%= link_to venue.name + " Presents", venue %></span>-</h2></p>
+        <div class="gigitt">
+          <p>
+            <h2>
+              <span id="user">
+                <%= link_to venue.name + " Presents", venue %>
+              </span> -
+            </h2>
+          </p>
           <%= display_gigs(venue.upcoming_gigs, :short) %>
         </div>
       </div>

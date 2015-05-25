@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#dashboard', as: :dashboard
 
+  patch 'finalize', to: 'timeslots#finalize', as: :finalize
+
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   devise_scope :user do
