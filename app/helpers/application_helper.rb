@@ -8,8 +8,10 @@ module ApplicationHelper
       if disp == :short
         content_tag(:h3, "No Upcoming Gigs")
       else
-        content_tag(:h3, "Looks like you have no gigs!") + \
-        link_to("Create a Timeslot", new_venue_timeslot_path(@venue), html_options = {class: "btn btn-success", role: "button"})
+        content_tag(:div, class: "panel-body") do
+          content_tag(:h3, "Looks like you have no gigs!") + \
+          link_to("Create a Timeslot", new_venue_timeslot_path(@venue), html_options = {class: "btn btn-success", role: "button"})
+        end
       end
     else
       dingus = ''

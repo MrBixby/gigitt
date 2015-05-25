@@ -12,12 +12,12 @@ class Timeslot < ActiveRecord::Base
 
   validates :doors, presence: true
 
-  scope :upcoming, -> {where('date >= ?', Date.today)}
+  scope :upcoming, -> {where('date >= ?', Date.today).order(date: :desc)}
   scope :pending, -> {joins(:gig).where('is_final = ?', false)}
   scope :finalized, -> {joins(:gig).where('is_final = ?', true)}
-  scope :past, -> {where('date <= ?', 1.week.ago)}
-  scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now)}
-  scope :future, -> {where('date >= ?', 1.week.from_now)}
+  scope :past, -> {where('date <= ?', 1.week.ago).order(date: :desc)}
+  scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now,).order(:date)}
+  scope :future, -> {where('date >= ?', 1.week.from_now).order(:date)}
 
 
 
