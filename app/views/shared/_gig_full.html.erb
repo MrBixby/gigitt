@@ -1,8 +1,21 @@
+<div class="col-md-4">
   <div class="panel panel-default">
-    <ul class="list-group">
-      <li class="list-group-item"><%= gig.timeslot.date %></li>
-      <li class="list-group-item"><a href="#" ><%= gig.event %></a></li>
-      <li class="list-group-item"><%= gig.doors %></li>
-      <%= render partial: "setlist", locals: {gig: gig} %>
-    </ul>
+    <div class="panel-heading giglets">
+      <h4 class="panel-title"><%= gig.event %></h4>
+      <p><%= gig.timeslot.date %></p>
+        <%= link_to edit_venue_timeslot_path(@venue, gig.timeslot) do %>
+             <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Edit Gig"></span>
+        <% end %>
+        <% unless gig.is_final? %>
+          <%= link_to finalize_path(params: {id: gig.timeslot.id}), method: :patch do %>
+              <span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Finalize Gig"></span>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="panel-body giglet-body" style="display:none">
+      <ul class="list-group">
+          <%= render "shared/setlist.html.erb", gig: gig %>
+      </ul>
+    </div>
   </div>
+</div>

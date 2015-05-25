@@ -1,0 +1,9 @@
+.create({name: "Pennywise", genre: "punk", description: "rocks", city: "Torrance, CA", zip: "90630", twitter: "@pennywise", instagram: "Pennywise", facebook: "Pennywise", soundcloud: "Pennywise", last_fm: "Pennywise"})
+
+.create({name: "Sublime", genre: "punk", description: "rocks", city: "Long Beach, CA", zip: "91746", twitter: "@sublime", instagram: "Sublime", facebook: "Sublime", soundcloud: "Sublime", last_fm: "Sublime"})
+
+.create({name: "Thrice", genre: "punk", description: "rocks", city: "Irvine, CA", zip: "91711", twitter: "@thrice", instagram: "Thrice", facebook: "Thrice", soundcloud: "Thrice", last_fm: "Thrice"})
+
+.create({name: "RATM", genre: "punk", description: "rocks", city: "Los Angeles, CA", zip: "70112", twitter: "@ratm", instagram: "ratm", facebook: "ratm", soundcloud: "ratm", last_fm: "ratm"})
+
+.create({name: "Offspring", genre: "punk", description: "rocks", city: "Huntington Beach, CA", zip: "70112", twitter: "@offspring", instagram: "offspring", facebook: "offspring", soundcloud: "offspring", last_fm: "offspring"})

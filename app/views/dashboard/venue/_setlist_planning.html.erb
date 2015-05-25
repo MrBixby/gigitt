@@ -4,7 +4,9 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <%= render 'dashboard/venue/setlist_item' %>
+      <% @venue.timeslots.upcoming.pending.each do |timeslot| %>
+        <%= render 'shared/gig_full', gig: timeslot.gig %>
+      <% end %>
     </div>
   </div>
 </div>
