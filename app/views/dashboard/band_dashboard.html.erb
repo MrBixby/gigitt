@@ -1,1 +1,13 @@
-<h1>My Dashboard</h1>
+<% if @venue %>
+  <div class="container">
+    <h1><%= @band.name %> Dashboard</h1>
+    <%= render 'dashboard/band/menu_bar' %>
+      <div id="content">
+      <%= render 'dashboard/band/gigs_list' %>
+      <%= render 'dashboard/band/setlist_planning' %>
+      </div>
+  </div>
+<% else %>
+  <h2> No Band! </h2>
+  <%= link_to "Add Band", new_band_path %>
+<% end %>

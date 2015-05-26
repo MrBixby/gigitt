@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Setlist Manager</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <% @band.timeslots.upcoming.pending.each do |timeslot| %>
+        <%= render 'shared/gig_full', gig: timeslot.gig %>
+      <% end %>
+    </div>
+  </div>
+</div>
