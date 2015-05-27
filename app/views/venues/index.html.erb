@@ -1,2 +1,6 @@
-<h1>Venue#index</h1>
-<p>Find me in app/views/venue=/index.html.erb</p>
+<h1>All Venues</h1>
+  <ul>
+    <% @venues.each do |venue| %>
+      <li><%= venue.name + ", " + venue.city.capitalize + ", " + venue.zip.to_s %></li>
+    <% end %>
+  <ul>
