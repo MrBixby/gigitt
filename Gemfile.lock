@@ -52,6 +52,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.0)
     autoprefixer-rails (5.1.11)
       execjs
@@ -116,6 +117,10 @@ GEM
       railties (>= 3.2)
       sprockets-rails
     json (1.8.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     log_buddy (0.7.0)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
@@ -246,6 +251,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   js-routes
+  letter_opener
   log_buddy
   momentjs-rails (~> 2.9)!
   newrelic_rpm
