@@ -1,4 +1,4 @@
-class BandController < ApplicationController
+class BandsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
   before_action :set_band, only: [:show, :edit, :update, :destroy]
 
@@ -15,8 +15,7 @@ class BandController < ApplicationController
   end
 
   def create
-    @band.user_ids = [current_user.id]
-    @band = Band.new(band_params)
+    @band = current_user.bands.create(band_params)
 
     respond_to do |format|
       if @band.save
@@ -58,6 +57,6 @@ class BandController < ApplicationController
     end
 
   def band_params
-    params.require(:band).permit(:name, :user_ids => [])
+    params.require(:band).permit(:name, :genre, :description, :city, :zip, :twitter, :instagram, :facebook, :soundcloud, :last_fm, :user_ids => [])
   end
 end

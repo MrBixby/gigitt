@@ -6,7 +6,7 @@
   <ul>
     <strong>Band Members</strong>
       <%= @band.users.each do |user| %>
-      <li><%= user.name %></li>
+      <li><%= user.profile.full_name %></li>
     <% end %>
   </ul>
   <li><%= @band.genre %></li>

@@ -18,6 +18,7 @@ class Timeslot < ActiveRecord::Base
   scope :past, -> {where('date <= ?', 1.week.ago).order(date: :desc)}
   scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now,).order(:date)}
   scope :future, -> {where('date >= ?', 1.week.from_now).order(:date)}
+  scope :unfilled, -> {where('openings > ?', self.gig.bands.count)}
 
 
 
