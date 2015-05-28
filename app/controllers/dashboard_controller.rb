@@ -25,6 +25,7 @@ class DashboardController < ApplicationController
     def  set_band_dash
       @band = current_user.bands.first
       session[:current_band_id] = @band.id
+      @openings = @band.available_gigs
     end
 
     def set_fan_dash

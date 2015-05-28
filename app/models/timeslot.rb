@@ -18,7 +18,6 @@ class Timeslot < ActiveRecord::Base
   scope :past, -> {where('date <= ?', 1.week.ago).order(date: :desc)}
   scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now,).order(:date)}
   scope :future, -> {where('date >= ?', 1.week.from_now).order(:date)}
-  scope :unfilled, -> {where('openings > ?', self.gig.bands.count)}
 
 
 
@@ -29,4 +28,10 @@ class Timeslot < ActiveRecord::Base
     end
     return b
   end
+
+  def self.unfilled
+    count = joins(:gig).joins(:bands).count
+    where('openings > ?', count)
+  end
+
 end

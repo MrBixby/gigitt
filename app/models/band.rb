@@ -3,7 +3,7 @@ class Band < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :gigrequests
   has_many :timeslots, through: :gigrequests
-  has_and_belongs_to_many :gigs
+  has_and_belongs_to_many :gigs, counter_cache: :bands_count
   has_many :fans
 
   acts_as_follower
@@ -16,7 +16,7 @@ class Band < ActiveRecord::Base
 
   def available_gigs
     self.followees(Venue).each do |venue|
-      return venue.timeslots.upcoming.pending.unfilled
+      return venue.timeslots.unfilled.upcoming.pending
     end
   end
 
