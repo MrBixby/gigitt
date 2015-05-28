@@ -42,6 +42,18 @@ class VenuesController < ApplicationController
     end
   end
 
+  def follow
+    @venue = Venue.find(params[:venue_id])
+    current_band.follow!(@venue)
+    redirect_to venues_path
+  end
+
+  def unfollow
+    @venue = Venue.find(params[:venue_id])
+    current_band.unfollow!(@venue)
+    redirect_to venues_path
+  end
+
   def destroy
     @venue.destroy
     respond_to do |format|

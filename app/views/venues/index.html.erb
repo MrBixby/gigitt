@@ -1,6 +1,15 @@
 <h1>All Venues</h1>
   <ul>
     <% @venues.each do |venue| %>
-      <li><%= venue.name + ", " + venue.city.capitalize + ", " + venue.zip.to_s %></li>
+      <li>
+        <%= venue.name + ", " + venue.city.capitalize + ", " + venue.zip.to_s %>
+        <% if current_band %>
+          <% if current_band.follows?(venue) %>
+            | <%= link_to('Unfollow', venue_unfollow_path(venue), method: :post, class: "btn btn-xs btn-danger") %>
+          <% else %>
+            | <%= link_to('Follow', venue_follow_path(venue), method: :post, class: "btn btn-xs btn-info") %>
+          <% end %>
+        <% end %>
+      </li>
     <% end %>
   <ul>

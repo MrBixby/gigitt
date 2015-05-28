@@ -29,4 +29,14 @@ Rails.application.routes.draw do
   resources :gigs
   root to: 'info#home'
 
+  resources :venues do
+    post 'follow',   to: 'venues#follow'
+    post 'unfollow', to: 'venues#unfollow'
+  end
+
+  resources :bands do
+    post 'follow',   to: 'bands#follow'
+    post 'unfollow', to: 'bands#unfollow'
+  end
+
 end
