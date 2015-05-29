@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: gigitt_development
+  pool: 5
+  username: richardglover
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: gigitt_test
+  pool: 5
+  username: richardglover
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: gigit_production
+  pool: 5
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
