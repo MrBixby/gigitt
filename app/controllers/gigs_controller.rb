@@ -79,7 +79,6 @@ class GigsController < ApplicationController
     def gig_params
       params.require(:gig).permit(:date, :showtime, :doors, :openings,
         :pay_amount, :paid_gig, :notes, :venue_id, :event, :age, :price, 
-        :description, :is_final, :band_ids =>[],
-        bandlist_attributes: [:hired])
+        :description, :is_final, :band_ids =>[], :hired_bands => [])
     end
 end

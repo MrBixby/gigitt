@@ -27,7 +27,7 @@
   :as => :grouped_select,
   :collection => [['Minimum Age', ['All Ages','18+', '21+']]],
   :group_method => :last %>
-  <%= f.input :band_ids, label: "Bands", collection: @gig.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
+  <%= f.input :hired_bands, label: "Bands", as: :select, collection: @gig.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
   <%= f.input :is_final, label: "Finalize Gig?", as: :boolean %>
   <div class="form-actions">
     <%= f.button :submit %>

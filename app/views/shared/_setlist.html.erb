@@ -1,3 +1,3 @@
-<% gig.bands.each do |band| %>
-<li class="list-group-item"><a href="#" ><%= band.name %></a></li>
+<% gig.bandlists.filled.each do |slot| %>
+  <li class="list-group-item"><%= link_to slot.band.name, band_path(slot.band_id) %></li>
 <% end %>

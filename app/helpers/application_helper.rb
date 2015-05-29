@@ -29,4 +29,5 @@ module ApplicationHelper
       dingus.html_safe
     end
   end
+
 end
