@@ -20,7 +20,7 @@
 #   user_id: user.id
 # })
 
-# slot1 = venue.timeslots.create({
+# slot1 = venue.gigs.create({
 #   date: 1.week.from_now,
 #   start_time: "07:00 PM".to_time,
 #   end_time: "09:00 PM".to_time,
@@ -28,9 +28,15 @@
 #   pay_amount: 100.00,
 #   paid_gig: true,
 #   notes: "Looking for great Punk Rock"
+#   event: "Punk it up",
+#   doors: "06:00 PM".to_time,
+#   showtime: "07:00 PM".to_time,
+#   age: "21 and Up",
+#   price: "$15 presale, $20 at the door",
+#   description: "Punk rock rules!"
 # })
 
-# slot2 = venue.timeslots.create({
+# slot2 = venue.gigs.create({
 #   date: 1.week.ago,
 #   start_time: "07:00 PM".to_time,
 #   end_time: "09:00 PM".to_time,
@@ -38,9 +44,15 @@
 #   pay_amount: 100.00,
 #   paid_gig: true,
 #   notes: "Looking for great Punk Rock"
+#   event: "Punk it up",
+#   doors: "06:00 PM".to_time,
+#   showtime: "07:00 PM".to_time,
+#   age: "21 and Up",
+#   price: "$15 presale, $20 at the door",
+#   description: "Punk rock rules!"
 # })
 
-# slot3 = venue.timeslots.create({
+# slot3 = venue.gigs.create({
 #   date: 2.weeks.from_now,
 #   start_time: "07:00 PM".to_time,
 #   end_time: "09:00 PM".to_time,
@@ -48,9 +60,6 @@
 #   pay_amount: 100.00,
 #   paid_gig: true,
 #   notes: "Looking for EDM DJ's"
-# })
-
-# gig1 = slot1.create_gig({
 #   event: "Punk it up",
 #   doors: "06:00 PM".to_time,
 #   showtime: "07:00 PM".to_time,
@@ -59,14 +68,6 @@
 #   description: "Punk rock rules!"
 # })
 
-# gig2 = slot2.create_gig({
-#   event: "Punk it up",
-#   doors: "06:00 PM".to_time,
-#   showtime: "07:00 PM".to_time,
-#   age: "21 and Up",
-#   price: "$15 presale, $20 at the door",
-#   description: "Punk rock rules!"
-# })
 
 
 
