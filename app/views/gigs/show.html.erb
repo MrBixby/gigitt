@@ -2,7 +2,7 @@
 <br>
 <p>
   <b>Venue:</b>
-  <%= @gig.user.username %>
+  <%= @venue.name %>
 </p>
 
 <p>
@@ -17,7 +17,11 @@
 
 <p>
   <strong>Band(s):</strong>
-  <%= @gig.band %>
+  <ul>
+    <% @gig.bands.each do |band| %>
+      <li><%= band.name %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
@@ -44,8 +48,28 @@
   <strong>Description:</strong>
   <%= @gig.description %>
 </p>
+
+<p>
+  <b>Openings:</b>
+  <%= @gig.openings %>
+</p>
+
+<p>
+  <b>Pay Amount:</b>
+  <%= @gig.pay_amount %>
+</p>
+
+<p>
+  <b>Paid Gig:</b>
+  <%= @gig.paid_gig %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @gig.notes %>
+</p>
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_gig_path(@gig) %> |
+<%= link_to 'Edit', edit_venue_gig_path(@gig) %> |
 <% else %>
-<%= link_to 'Back', gigs_path %>
+<%= link_to 'Back', venue_gigs_path %>
 <% end %>

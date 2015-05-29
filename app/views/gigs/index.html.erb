@@ -1,2 +1,9 @@
-<br>
-<h1>This is the gigs index!</h1>
+<h1>Gigs</h1>
+<% @gigs.each do |gig| %>
+<div class="panel panel-default">
+  <ul class="list-group">
+    <li class="list-group-item"><%= link_to venue_gig_show_path(gig), gig.name %></li>
+    <li class="list-group-item"><%= gig.date %></li>
+  </ul>
+</div>
+<% end %>

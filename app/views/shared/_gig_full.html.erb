@@ -2,12 +2,12 @@
   <div class="panel panel-default">
     <div class="panel-heading giglets">
       <h4 class="panel-title"><%= gig.event %></h4>
-      <p><%= gig.timeslot.date %></p>
-        <%= link_to edit_venue_timeslot_path(@venue, gig.timeslot) do %>
+      <p><%= gig.date %></p>
+        <%= link_to edit_venue_gig_path(@venue, gig) do %>
              <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Edit Gig"></span>
         <% end %>
         <% unless gig.is_final? %>
-          <%= link_to finalize_path(params: {id: gig.timeslot.id}), method: :patch do %>
+          <%= link_to finalize_path(params: {id: gig.id}), method: :patch do %>
               <span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Finalize Gig"></span>
           <% end %>
         <% end %>

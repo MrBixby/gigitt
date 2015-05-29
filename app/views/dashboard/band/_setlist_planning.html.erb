@@ -4,8 +4,8 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <% @band.timeslots.upcoming.pending.each do |timeslot| %>
-        <%= render 'shared/gig_full', gig: timeslot.gig %>
+      <% @band.gigs.upcoming.pending.each do |gig| %>
+        <%= render 'shared/gig_full', gig: gig %>
       <% end %>
     </div>
   </div>

@@ -10,7 +10,7 @@ module ApplicationHelper
       else
         content_tag(:div, class: "panel-body") do
           content_tag(:h3, "Looks like you have no gigs!") + \
-          link_to("Create a Timeslot", new_venue_timeslot_path(@venue), html_options = {class: "btn btn-success", role: "button"})
+          link_to("Create a Gig", new_venue_gig_path(@venue), html_options: {class: "btn btn-success", role: "button"})
         end
       end
     else
@@ -18,7 +18,7 @@ module ApplicationHelper
 
       if disp == :short
         gigs.each do |gig|
-          dingus += render("shared/gig_sm", gig: gig)
+          dingus += render("shared/gig_sm", venue: gig.venue, gig: gig)
         end
       else
         gigs.each do |gig|
