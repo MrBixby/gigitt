@@ -3,13 +3,17 @@
     <div class="panel-heading giglets">
       <h4 class="panel-title"><%= gig.event %></h4>
       <p><%= gig.date %></p>
-        <%= link_to edit_venue_gig_path(@venue, gig) do %>
-             <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Edit Gig"></span>
-        <% end %>
-        <% unless gig.is_final? %>
-          <%= link_to finalize_path(params: {id: gig.id}), method: :patch do %>
-              <span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Finalize Gig"></span>
+        <% if @venue %>
+          <%= link_to edit_venue_gig_path(@venue, gig) do %>
+               <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Edit Gig"></span>
           <% end %>
+          <% unless gig.is_final? %>
+            <%= link_to finalize_path(params: {id: gig.id}), method: :patch do %>
+                <span class="glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Finalize Gig"></span>
+            <% end %>
+          <% end %>
+        <% elsif current_band %>
+          <span><%= gig.venue.name %></span>
         <% end %>
     </div>
     <div class="panel-body giglet-body" style="display:none">
