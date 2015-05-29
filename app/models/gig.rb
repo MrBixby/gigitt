@@ -21,6 +21,7 @@ class Gig < ActiveRecord::Base
   scope :present, -> {where('date >= ? AND date <= ?', 1.week.ago, 1.week.from_now,).order(:date)}
   scope :future, -> {where('date >= ?', 1.week.from_now).order(:date)}
 
+
   def band_options
     b = self.bands.pluck("name", "id")
     if b.empty?

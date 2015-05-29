@@ -14,9 +14,17 @@ class Band < ActiveRecord::Base
   validates :zip, presence: true
 
   def available_gigs
+    gigs = []
     self.followees(Venue).each do |venue|
-      return venue.gigs.unfilled.upcoming.pending
+      pgig = venue.gigs.upcoming.pending
+      pgig.each do |p|
+        filled_spots = p.bandlists.filled.count
+        if p.openings > filled_spots
+          gigs << p
+        end
+      end
     end
+    return gigs.compact
   end
 
 end
