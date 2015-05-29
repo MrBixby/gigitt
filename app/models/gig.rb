@@ -4,7 +4,7 @@ class Gig < ActiveRecord::Base
   has_many :bands, through: :bandlists
   belongs_to :venue
 
-  accepts_nested_attributes_for :bandlist
+  accepts_nested_attributes_for :bandlists
 
   validates :description, presence: true, length: { minimum: 8 }
   validates :event, presence: true, length: { maximum: 20 }
