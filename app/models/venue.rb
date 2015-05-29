@@ -1,7 +1,7 @@
 class Venue < ActiveRecord::Base
 
   has_and_belongs_to_many :users
-  has_many :timeslots, dependent: :destroy
+  has_many :gigs, dependent: :destroy
 
   acts_as_followable
 
@@ -17,20 +17,9 @@ class Venue < ActiveRecord::Base
 
   ["past", "present", "future", "upcoming"].each do |action|
     define_method ("#{action}_gigs") do
-      openings = self.timeslots.send("#{action}")
-      gigs = gig_list(openings)
-      return gigs
+      openings = self.gigs.send("#{action}")
+      return openings.finalized
     end
   end
 
-  private
-  def gig_list(openings)
-    gigs = []
-    openings.each do |t|
-      if t.gig.is_final
-        gigs << t.gig
-      end
-    end
-    return gigs.compact
-  end
 end
