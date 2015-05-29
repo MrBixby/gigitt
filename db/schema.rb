@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528062117) do
+ActiveRecord::Schema.define(version: 20150528230716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bandlists", force: :cascade do |t|
+    t.integer  "band_id"
+    t.integer  "gig_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "hired"
+  end
+
+  add_index "bandlists", ["band_id"], name: "index_bandlists_on_band_id", using: :btree
+  add_index "bandlists", ["gig_id"], name: "index_bandlists_on_gig_id", using: :btree
 
   create_table "bands", force: :cascade do |t|
     t.text     "name"
@@ -37,11 +48,6 @@ ActiveRecord::Schema.define(version: 20150528062117) do
   create_table "bands_fans", force: :cascade do |t|
     t.integer "band_id"
     t.integer "fan_id"
-  end
-
-  create_table "bands_gigs", force: :cascade do |t|
-    t.integer "band_id"
-    t.integer "gig_id"
   end
 
   create_table "bands_users", force: :cascade do |t|
@@ -67,24 +73,25 @@ ActiveRecord::Schema.define(version: 20150528062117) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
-  create_table "gigrequests", force: :cascade do |t|
-    t.integer  "band_id"
-    t.integer  "timeslot_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "gigs", force: :cascade do |t|
     t.string   "event"
     t.string   "age"
     t.string   "price"
     t.text     "description"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "timeslot_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.boolean  "is_final"
-    t.integer  "bands_count", default: 0, null: false
+    t.date     "date"
+    t.time     "showtime"
+    t.time     "doors"
+    t.integer  "openings"
+    t.decimal  "pay_amount",  precision: 5, scale: 2
+    t.boolean  "paid_gig"
+    t.string   "notes"
+    t.integer  "venue_id"
   end
+
+  add_index "gigs", ["venue_id"], name: "index_gigs_on_venue_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.string   "liker_type"
@@ -120,19 +127,6 @@ ActiveRecord::Schema.define(version: 20150528062117) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "timeslots", force: :cascade do |t|
-    t.date     "date"
-    t.time     "start_time"
-    t.integer  "openings"
-    t.integer  "pay_amount"
-    t.boolean  "paid_gig"
-    t.string   "notes"
-    t.integer  "venue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.time     "doors"
   end
 
   create_table "users", force: :cascade do |t|
@@ -177,5 +171,8 @@ ActiveRecord::Schema.define(version: 20150528062117) do
     t.string   "instagram"
   end
 
+  add_foreign_key "bandlists", "bands"
+  add_foreign_key "bandlists", "gigs"
   add_foreign_key "bands", "users"
+  add_foreign_key "gigs", "venues"
 end
