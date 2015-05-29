@@ -2,7 +2,7 @@ class GigsController < ApplicationController
   respond_to :html, :json
 
   before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy, :update]
-  before_action :set_venue, only: [:index, :new, :create, :edit, :update]
+  before_action :set_venue, only: [:index, :show, :new, :create, :edit, :update]
 
   def index
     @gigs = @venue.gigs.all
@@ -13,16 +13,16 @@ class GigsController < ApplicationController
   end
 
   def new
-    @gig = @venue.gig.new
+    @gig = @venue.gigs.new
   end
 
   def create
-    @gig = @venue.gig.new(gig_params)
+    @gig = @venue.gigs.new(gig_params)
 
     respond_to do |format|
       if @gig.save
-        format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
-        format.json { render :show, status: :created, location: @gig }
+        format.html { redirect_to dashboard_path, notice: 'Gig was successfully created.' }
+        format.json { render :show, status: :created, location: dashboard_path }
       else
         format.html { render :new }
         format.json { render json: @gig.errors, status: :unprocessable_entity }
@@ -39,8 +39,8 @@ class GigsController < ApplicationController
     @gig = @venue.gigs.find(params[:id])
     respond_to do |format|
       if @gig.update(gig_params)
-        format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gig }
+        format.html { redirect_to dashboard_path, notice: 'Gig was successfully updated.' }
+        format.json { render :show, status: :ok, location: dashboard_path }
       else
         format.html { render :edit }
         format.json { render json: @gig.errors, status: :unprocessable_entity }
