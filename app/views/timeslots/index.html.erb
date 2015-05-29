@@ -1,9 +1,0 @@
-<h1>Timeslots</h1>
-<% @timeslots.each do |timeslot| %>
-<div class="panel panel-default">
-  <ul class="list-group">
-    <li class="list-group-item"><%= link_to venue_timeslot_show_path(timeslot), timeslot.name %></li>
-    <li class="list-group-item"><%= timeslot.date %></li>
-  </ul>
-</div>
-<% end %>
