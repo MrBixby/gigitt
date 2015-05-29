@@ -5,9 +5,7 @@ en:
     required:
       text: 'required'
       mark: '*'
-    labels:
-      timeslots:
-        start_time: 'Showtime'      
+    labels:     
       gigs:
         is_final: 'Finalize Gig'
       # You can uncomment the line below if you need to overwrite the whole required html.
