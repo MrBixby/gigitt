@@ -7,7 +7,12 @@ class DashboardController < ApplicationController
       render "venue_dashboard"
     elsif current_user.role == "musician"
       set_band_dash
-      render "band_dashboard"
+      if @band.nil?
+        redirect_to new_band_path
+      else
+        set_band_session
+        render "band_dashboard"
+      end
     else
       set_fan_dash
       render "fan_dashboard"
@@ -24,7 +29,10 @@ class DashboardController < ApplicationController
 
     def  set_band_dash
       @band = current_user.bands.first
-      session[:current_band_id] = @band.id
+    end
+
+    def set_band_session
+      session[:current_band_id] ||= @band.id
       @openings = @band.available_gigs
     end
 
