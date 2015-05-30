@@ -2,11 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-  $('#paid-gig').change ->
-    $('#gig-pay-amount').toggle()
+# $('#paid-gig').change ->
+#   $('#gig-pay-amount').toggle()
 
-  $('#paid-gig').each ->
+ready = ->
+  $('#paid-gig').find('#gig_paid_gig').change ->
+    $('#gig-pay-amount').fadeToggle()
+  
+  $('#paid-gig').find('#gig_paid_gig').each ->
     if this.checked
       $('#gig-pay-amount').show()
     else
@@ -16,6 +19,9 @@ jQuery ->
     placeholder: "Select Bands"
   })
 
-  $ ->
-    $('.gig').hover (event) ->
-      $(this).toggleClass("hover")
+  $('.gig').hover (event) ->
+    $(this).toggleClass("hover")
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
