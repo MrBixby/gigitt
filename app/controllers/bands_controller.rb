@@ -47,7 +47,7 @@ class BandsController < ApplicationController
     @band = current_band
     @gig = Gig.find(params[:gig_id])
     @band.gigs.push(@gig)
-    redirect_to dashboard_path, notice: 'Applied for Gig' 
+    redirect_to dashboard_path, notice: 'Applied for Gig'
   end
 
   def cancel_gig_app

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update)
     end
 
+    def after_sign_in_path_for(user)
+      dashboard_path
+    end
+
     private
 
     def current_band
