@@ -10,26 +10,31 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :event, label: "Event Name" %>
-  <%= f.input :date, :as => :date_picker, label: "Event Date" %>
-  <%= f.input :doors, :as => :time_picker, label: "Doors Open" %>
-  <%= f.input :showtime, :as => :time_picker, label: "Showtime", input_html: {data: {date_options: {stepping: 15}}} %>
-  <%= f.input :description %>
-  <%= f.input :openings, label: "Band Openings" %>
-  <%= f.input :paid_gig, wrapper_html: { id: "paid-gig" } %>
-  <%= f.input :pay_amount, wrapper: :vertical_input_group, wrapper_html: { id: 'gig-pay-amount', style: 'display: none' } do %>
-    <span class="input-group-addon">$</span>
-    <%= f.input_field :pay_amount, class: "form-control" %>
-  <% end %>
-  <%= f.input :price, label: "Ticket Price" %>
-  <%= f.input :notes %>
-  <%= f.input :age,
-  :as => :grouped_select,
-  :collection => [['Minimum Age', ['All Ages','18+', '21+']]],
-  :group_method => :last, :include_blank => false %>
-  <%= f.input :hired_bands, label: "Available Bands", as: :select, collection: @gig.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
-  <%= f.input :is_final, label: "Finalize Gig?", as: :boolean %>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <legend>New Gig</legend>
+        <%= f.input :event, label: "Event Name" %>
+        <%= f.input :date, :as => :date_picker, label: "Event Date" %>
+        <%= f.input :doors, :as => :time_picker, label: "Doors Open" %>
+        <%= f.input :showtime, :as => :time_picker, label: "Showtime", input_html: {data: {date_options: {stepping: 15}}} %>
+        <%= f.input :description %>
+        <%= f.input :openings, label: "Band Openings" %>
+        <%= f.input :paid_gig, wrapper_html: { id: "paid-gig" } %>
+        <%= f.input :pay_amount, wrapper: :vertical_input_group, wrapper_html: { id: 'gig-pay-amount', style: 'display: none' } do %>
+          <span class="input-group-addon">$</span>
+          <%= f.input_field :pay_amount, class: "form-control" %>
+        <% end %>
+        <%= f.input :price, label: "Ticket Price" %>
+        <%= f.input :notes %>
+        <%= f.input :age,
+        :as => :grouped_select,
+        :collection => [['Minimum Age', ['All Ages','18+', '21+']]],
+        :group_method => :last, :include_blank => false %>
+        <%= f.input :hired_bands, label: "Available Bands", as: :select, collection: @gig.band_options, input_html: { multiple: true, id: "band-multi-select"} %>
+        <%= f.input :is_final, label: "Finalize Gig?", as: :boolean %>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      </div>
+    </div>
 <% end %>
