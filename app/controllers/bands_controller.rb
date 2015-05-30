@@ -43,6 +43,20 @@ class BandsController < ApplicationController
     end
   end
 
+  def apply_for_gig
+    @band = current_band
+    @gig = Gig.find(params[:gig_id])
+    @band.gigs.push(@gig)
+    redirect_to dashboard_path, notice: 'Applied for Gig' 
+  end
+
+  def cancel_gig_app
+    @band = current_band
+    @gig = Gig.find(params[:gig_id])
+    @band.gigs.delete(@gig)
+    redirect_to dashboard_path, notice: 'Application Cancelled'
+  end
+
   def destroy
     @band.destroy
     respond_to do |format|

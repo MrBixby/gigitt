@@ -14,6 +14,15 @@
           <% end %>
         <% elsif current_band %>
           <span><%= gig.venue.name %></span>
+          <% if current_band.gigs.include?(gig) %>
+            <%= link_to band_cancel_app_path(current_band, params: {gig_id: gig.id}), method: :patch, class: "btn btn-xs btn-danger" do %>
+              <span class="glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="top" title="Cancel Application"></span>
+            <% end %>
+          <% else %>
+            <%= link_to band_app_path(current_band, params: {gig_id: gig.id}), method: :patch, class: "btn btn-xs btn-success" do %>
+              <span class="glyphicon glyphicon-send" data-toggle="tooltip" data-placement="top" title="Apply to Play"></span>
+            <% end %>
+          <% end %>
         <% end %>
     </div>
     <div class="panel-body giglet-body" style="display:none">

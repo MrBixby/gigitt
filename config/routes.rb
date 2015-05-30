@@ -27,8 +27,10 @@ Rails.application.routes.draw do
   end
   
   resources :bands do
-    post 'follow',   to: 'bands#follow'
-    post 'unfollow', to: 'bands#unfollow'
+    post 'follow',      to: 'bands#follow'
+    post 'unfollow',    to: 'bands#unfollow'
+    patch 'app',        to: 'bands#apply_for_gig'
+    patch 'cancel_app', to: 'bands#cancel_gig_app'
   end
   
   resources :fans
