@@ -37,7 +37,7 @@ class Gig < ActiveRecord::Base
       hired_bands.reject!(&:empty?)
       hired_bands.each do |hb|
         band = self.bandlists.where('gig_id = ? AND band_id = ?', self.id, hb)
-        band.each do |b| 
+        band.each do |b|
           b.update_attribute(:hired, true)
         end
       end

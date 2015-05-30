@@ -50,9 +50,8 @@ class GigsController < ApplicationController
 
   def finalize
     @gig = Gig.find(params[:id])
-    @gig.is_final = true
     respond_to do |format|
-      if @gig.save
+      if @gig.update_column(:is_final, true)
         format.html { redirect_to dashboard_path, notice: 'Gig was finalized.'}
         format.json { render :show, status: :ok, location: @gig }
       else
@@ -78,7 +77,7 @@ class GigsController < ApplicationController
 
     def gig_params
       params.require(:gig).permit(:date, :showtime, :doors, :openings,
-        :pay_amount, :paid_gig, :notes, :venue_id, :event, :age, :price, 
+        :pay_amount, :paid_gig, :notes, :venue_id, :event, :age, :price,
         :description, :is_final, :band_ids =>[], :hired_bands => [])
     end
 end
