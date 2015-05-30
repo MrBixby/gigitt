@@ -12,7 +12,7 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a href="/" class="pull-left"><img style="height: 50px; padding-top: 5px;" img src="/img/logoMonster.png"></a>
+        <a href="/" class="pull-left"><img style="height: 50px; padding-top: 5px;" src="/img/logoMonster.png" alt="Gigitt Logo"></a>
         <ul class="nav">
         </ul>
         <ul class="nav pull-right">
@@ -31,24 +31,26 @@
     </div>
   </div>
   <div class="container">
-    <% flash.each do |type, message| %>
+    <div class="content">
+      <% flash.each do |type, message| %>
 
-    <% end %>
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <button class="close" data-dismiss="alert">x</button>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+      <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button class="close" data-dismiss="alert">x</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
-    <% if flash[:alert] %>
-      <div class="alert alert-error">
-        <button class="close" data-dismiss="alert">x</button>
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert">x</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
     </div>
+  </div>
 </body>
 </html>
