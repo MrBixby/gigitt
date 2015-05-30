@@ -69,7 +69,7 @@
   <%= @gig.notes %>
 </p>
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_venue_gig_path(@gig) %> |
+<%= link_to 'Edit', edit_venue_gig_path(@venue, @gig) %> |
 <% else %>
 <%= link_to 'Back', venue_gigs_path %>
 <% end %>
