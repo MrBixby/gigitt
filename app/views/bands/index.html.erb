@@ -1,2 +1,8 @@
-<h1>Band#index</h1>
-<p>Find me in app/views/band/index.html.erb</p>
+<h1>All Bands</h1>
+  <ul>
+    <% @bands.each do |band| %>
+      <li>
+        <%= link_to(band.name, band_path(band)) + ", " + band.city.capitalize + ", " + band.zip.to_s + " | " +band.genre %>
+      </li>
+    <% end %>
+  <ul>
