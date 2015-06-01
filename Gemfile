@@ -27,6 +27,7 @@ end
 
 group :test do
   gem 'minitest-spec-rails'
+  gem 'capybara'
   gem 'shoulda'
   gem 'factory_girl_rails'
 end
