@@ -25,13 +25,6 @@ group :development do
   gem 'thin'
 end
 
-group :test do
-  gem 'minitest-spec-rails'
-  gem 'capybara'
-  gem 'shoulda'
-  gem 'factory_girl_rails'
-end
-
 group :development, :test do
   gem 'sqlite3'
   gem 'log_buddy'
@@ -43,6 +36,10 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'pry-rails'
   gem 'letter_opener'
+  gem 'factory_girl_rails'
+  gem 'minitest-spec-rails'
+  gem 'capybara'
+  gem 'shoulda'
 end
 
 group :assets do

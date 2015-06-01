@@ -1,26 +1,26 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "a user should enter a profile name" do
-    user = User.new
-    assert !user.save
-    assert !user.errors[:profile].empty?
+  it 'creates a user' do
+    user_justin = FactoryGirl.build(:user)
+    user_justin.must_be_instance_of User
   end
 
-  test "a user should have a unique profile name" do
-    user = User.new
-    user.username = users(:justin).username
-
-    assert !user.save
-    assert !user.errors[:profile].empty?
+  it 'does not allow special characters in username' do
+    user_1 = FactoryGirl.build(:user, username:"u$er")
+    assert_not user_1.valid?
   end
 
-  test "a user should have a profile name without spaces" do
-    user = User.new
-    user.username = "My Profile with Spaces"
-
-    assert !user.save
-    assert !user.errors[:profile].empty?
-    assert user.errors[:profile].include?("Must be formated correctly.")
+  it 'has a username' do
+    user_1 = FactoryGirl.build(:user, username:"")
+    assert_not user_1.valid?
   end
+
+  it 'has a unique username' do
+    User.delete_all
+    user_1 = FactoryGirl.create(:user, email:"user1@example.com")
+    user_2 = FactoryGirl.build(:user, email:"user2@example.com")
+    assert_not user_2.valid?
+  end
+
 end
