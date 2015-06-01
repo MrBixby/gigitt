@@ -26,6 +26,7 @@ group :development do
 end
 
 group :test do
+  gem 'minitest-spec-rails'
   gem 'shoulda'
   gem 'factory_girl_rails'
 end
