@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  band_id: 
-  gig_id: 
-
-two:
-  band_id: 
-  gig_id: 
