@@ -8,9 +8,12 @@ FactoryGirl.define do
     doors Time.parse('7:00pm')
     showtime Time.parse('9:00pm')
     is_final false
+  end
 
-    factory :gig_with_bands do
-      association :bands, factory: :band
+  factory :gig_with_bands, parent: :gig do
+    after(:build, :create) do |gig|
+      gig.bands << FactoryGirl.create(:band)
     end
   end
+
 end

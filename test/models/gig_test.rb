@@ -97,9 +97,10 @@ class GigTest < ActiveSupport::TestCase
     end
 
     it "returns an array of hired bands" do
-        @testgig = FactoryGirl.create(:gig_with_bands)
-        bands = @testgig.hired_bandlists
-        assert_includes bands, @testgig.bands
+        bandlist = FactoryGirl.create(:bandlist_with_hired_band)
+        gig = bandlist.gig
+        bands = gig.hired_bandlists
+        assert_includes bands, bandlist
     end
   end
 

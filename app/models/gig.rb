@@ -6,6 +6,7 @@ class Gig < ActiveRecord::Base
   belongs_to :venue
 
   accepts_nested_attributes_for :bandlists
+  attr_accessor :hired_bands
 
   validates :description, presence: true, length: { minimum: 8 }
   validates :event, presence: true, length: { maximum: 20 }
@@ -22,7 +23,7 @@ class Gig < ActiveRecord::Base
   scope :present, -> {where('date >= ? AND date <= ?', Time.zone.today, 1.week.from_now,).order(:date)}
   scope :future, -> {where('date >= ?', 1.week.from_now).order(:date)}
 
-  before_save :hire_bandlists
+  before_save :hire_bands
 
   def band_options
     b = self.bands.pluck("name", "id")
@@ -32,10 +33,16 @@ class Gig < ActiveRecord::Base
     return b
   end
 
-  def hire_bandlists
-    hired_bandlists.reject(&:empty?).each do |hired_bandlist|
-      hired_bandlist.update_attribute(:hired, true)
+  def hire_bands
+    if hired_bands.present?
+      hired_bands.reject(&:empty?).each do |hired_bandlist|
+        hired_bandlist.update_attribute(:hired, true)
+      end
     end
+  end
+
+  def hired_bands
+    @hired_bands ||= hired_bandlists.pluck(:band_id)
   end
 
 end
