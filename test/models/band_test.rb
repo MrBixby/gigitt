@@ -6,7 +6,7 @@ class BandTest < ActiveSupport::TestCase
     assert_not band.valid?
   end
 
-  it 'has a unique name' do
+  it "has a unique name" do
     Band.delete_all
     band_1 = FactoryGirl.create(:band, name:"Thrice")
     band_2 = FactoryGirl.build(:band, name:"Thrice")
@@ -27,5 +27,4 @@ class BandTest < ActiveSupport::TestCase
     band = FactoryGirl.build(:band, zip: nil)
     assert_not band.valid?
   end
-
 end

@@ -6,8 +6,7 @@ class Venue < ActiveRecord::Base
   acts_as_followable
 
   validates :name, presence: true,
-                      uniqueness: true,
-            length: { maximum: 60 }
+                      uniqueness: true
   validates :address, presence: true, uniqueness: true
   validates :city, presence: true
   validates :state, presence: true
