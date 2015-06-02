@@ -4,8 +4,13 @@ FactoryGirl.define do
     age 'All Ages'
     price '21'
     description 'test description'
-    date Date.today
+    date Time.zone.today
     doors Time.parse('7:00pm')
     showtime Time.parse('9:00pm')
+    is_final false
+
+    factory :gig_with_bands do
+      association :bands, factory: :band
+    end
   end
 end
