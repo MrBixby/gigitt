@@ -35,14 +35,14 @@ class Gig < ActiveRecord::Base
 
   def hire_bands
     if hired_bands.present?
-      hired_bands.reject(&:empty?).each do |hired_bandlist|
-        hired_bandlist.update_attribute(:hired, true)
+      hired_bands.reject(&:empty?).each do |hb|
+        band = self.bandlists.where('gig_id = ? AND band_id = ?', self.id, hb)
+        band.each do |hired|
+          hired.update_attribute(:hired, true)
+        end
       end
     end
   end
 
-  def hired_bands
-    @hired_bands ||= hired_bandlists.pluck(:band_id)
-  end
 
 end

@@ -124,5 +124,15 @@ class GigTest < ActiveSupport::TestCase
         assert_includes gig, [@band.name, @band.id]
       end
     end
+
+    describe "#hire_bands" do
+      it "updates the hired attribute on a bandlist record" do
+        @gig2.hired_bands = ["#{@band.id}"]
+        @gig2.hire_bands
+        bandlist = @gig2.hired_bandlists
+        allbandlists = Bandlist.filled
+        assert_equal allbandlists.first, bandlist.first
+      end
+    end
   end
 end
