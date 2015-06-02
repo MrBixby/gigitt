@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :gig do
     event 'test event'
     age 'All Ages'
-    price '21'
+    price { Faker::Commerce.price }
     description 'test description'
     date Time.zone.today
     doors Time.parse('7:00pm')
