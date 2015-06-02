@@ -18,8 +18,8 @@ class UserTest < ActiveSupport::TestCase
 
   it 'has a unique username' do
     User.delete_all
-    user_1 = FactoryGirl.create(:user, email:"user1@example.com")
-    user_2 = FactoryGirl.build(:user, email:"user2@example.com")
+    user_1 = FactoryGirl.create(:user, username:"user1")
+    user_2 = FactoryGirl.build(:user, username:"user1")
     assert_not user_2.valid?
   end
 
