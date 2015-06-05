@@ -3,10 +3,4 @@
 <p></p>
 <div class="meta">
   <%= link_to time_ago_in_words(gig.created_at) + " ago", venue_gig_path(venue, gig) %>
-  <span class="admin">
-    <% if user_signed_in? %>
-      | <%= link_to 'Edit', edit_venue_gig_path(venue, gig) %> |
-      <%= link_to 'Delete', venue_gig_path(venue, gig), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </span>
 </div>
