@@ -11,6 +11,8 @@ class DashboardController < ApplicationController
         redirect_to new_band_path
       else
         set_band_session
+        set_booked_gig
+        set_applied_gig
         render "band_dashboard"
       end
     else
@@ -34,6 +36,14 @@ class DashboardController < ApplicationController
     def set_band_session
       session[:current_band_id] ||= @band.id
       @openings = @band.available_gigs
+    end
+
+    def set_booked_gig
+      @booked = current_band.booked_gigs
+    end
+
+    def set_applied_gig
+      @applied = current_band.applied_gigs
     end
 
     def set_fan_dash

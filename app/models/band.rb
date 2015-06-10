@@ -13,6 +13,9 @@ class Band < ActiveRecord::Base
   validates :city, presence: true
   validates :zip, presence: true
 
+  def applied_gigs
+  end
+
   def available_gigs
     gigs = []
     self.followees(Venue).each do |venue|
@@ -25,6 +28,16 @@ class Band < ActiveRecord::Base
       end
     end
     return gigs.compact
+  end
+
+  def booked_gigs
+    @booked_gig = []
+    hired_gigs = self.bandlists.filled
+    hired_gigs.each do |set|
+     if set.gig.date >= Date.today
+      @booked_gigs << set.gig
+     end
+    end
   end
 
 end

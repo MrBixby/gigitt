@@ -1,1 +1,3 @@
-<%= @band.booked_gigs %>
+<% @booked.each do |booked| %>
+  <%= render "shared/gig_full", gig: booked %>
+<% end %>
