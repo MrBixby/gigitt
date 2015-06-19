@@ -1,1 +1,3 @@
-<%= @band.applied_gigs %>
+<% @applied.each do |applied| %>
+  <%= render "shared/gig_full", gig: applied %>
+<% end %>

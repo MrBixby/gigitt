@@ -14,6 +14,7 @@ class Band < ActiveRecord::Base
   validates :zip, presence: true
 
   def applied_gigs
+    @applied_gigs = []
   end
 
   def available_gigs
@@ -31,13 +32,14 @@ class Band < ActiveRecord::Base
   end
 
   def booked_gigs
-    @booked_gig = []
+    @booked_gigs = []
     hired_gigs = self.bandlists.filled
     hired_gigs.each do |set|
      if set.gig.date >= Date.today
       @booked_gigs << set.gig
      end
     end
+    @booked_gigs
   end
 
 end
