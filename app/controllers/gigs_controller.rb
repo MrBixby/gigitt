@@ -32,7 +32,6 @@ class GigsController < ApplicationController
 
   def edit
     @gig = @venue.gigs.find(params[:id])
-    @bandlists = @gig.bandlists.all
   end
 
   def update
