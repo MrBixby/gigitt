@@ -14,7 +14,12 @@ class Band < ActiveRecord::Base
   validates :zip, presence: true
 
   def applied_gigs
-    @applied_gigs = []
+    applied_gigs = []
+    apps = self.bandlists.unfilled
+    apps.each do |app|
+      applied_gigs << app.gig
+    end
+    return applied_gigs
   end
 
   def available_gigs

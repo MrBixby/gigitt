@@ -23,6 +23,11 @@
               <span class="glyphicon glyphicon-send" data-toggle="tooltip" data-placement="top" title="Apply to Play"></span>
             <% end %>
           <% end %>
+          <% if !gig.is_final? %>
+            <span class="glyphicon glyphicon-time" data-toggle="tooltip" data-placement="top" title="Pending Gig"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-ok-sign" data-toggle="tooltip" data-placement="top" title="Finalized Gig"></span>
+          <% end %>
         <% end %>
     </div>
     <div class="panel-body giglet-body" style="display:none">
