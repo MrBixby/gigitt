@@ -19,20 +19,20 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:new, :show, :edit, :update, :create, :destroy]
-  
+
   resources :venues do
     resources :gigs
     post 'follow',   to: 'venues#follow'
     post 'unfollow', to: 'venues#unfollow'
   end
-  
+
   resources :bands do
     post 'follow',      to: 'bands#follow'
     post 'unfollow',    to: 'bands#unfollow'
     patch 'app',        to: 'bands#apply_for_gig'
     patch 'cancel_app', to: 'bands#cancel_gig_app'
   end
-  
+
   resources :fans
 
   root to: 'info#home'
