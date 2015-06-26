@@ -1,6 +1,6 @@
 <% if @venue %>
   <div class="container">
-    <h1><%= @venue.name %> Dashboard</h1>
+    <h1><%= @venue.name.titlecase %> Dashboard</h1>
     <%= render 'dashboard/venue/menu_bar' %>
       <div id="content">
       <%= render 'dashboard/venue/gigs_list' %>
