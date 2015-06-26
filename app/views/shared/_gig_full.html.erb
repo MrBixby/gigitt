@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading giglets">
-      <h4 class="panel-title"><%= link_to gig.event, venue_gig_path(gig.venue.id, gig) %></h4>
+      <h4 class="panel-title"><%= link_to gig.event.titlecase, venue_gig_path(gig.venue.id, gig) %></h4>
       <p><%= gig.date %></p>
         <% if @venue %>
           <%= link_to edit_venue_gig_path(@venue, gig) do %>
