@@ -2,7 +2,7 @@
 <br>
 <p>
   <b>Venue:</b>
-  <%= @venue.name %>
+  <%= link_to @venue.name, venue_path(@venue) %>
 </p>
 
 <p>
@@ -19,7 +19,7 @@
   <strong>Band(s):</strong>
   <ul>
     <% @gig.bandlists.filled.each do |bandlist| %>
-      <li><%= bandlist.band.name %></li>
+      <li><%= link_to bandlist.band.name, band_path(bandlist.band) %></li>
     <% end %>
   </ul>
 </p>
