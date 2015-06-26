@@ -18,8 +18,8 @@
 <p>
   <strong>Band(s):</strong>
   <ul>
-    <% @gig.bands.each do |band| %>
-      <li><%= band.name %></li>
+    <% @gig.bandlists.filled.each do |bandlist| %>
+      <li><%= bandlist.band.name %></li>
     <% end %>
   </ul>
 </p>
