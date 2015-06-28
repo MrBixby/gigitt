@@ -4,6 +4,7 @@ class Band < ActiveRecord::Base
   has_many :bandlists
   has_many :gigs, through: :bandlists
   has_many :fans
+  has_many :songs
 
   acts_as_follower
   acts_as_followable
