@@ -4,8 +4,8 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <% @band.gigs.upcoming.pending.each do |gig| %>
-        <%= render 'shared/gig_full', gig: gig %>
+      <% @band.gigs.upcoming.finalized.each do |gig| %>
+        <%= render 'shared/song', gig: gig %>
       <% end %>
     </div>
   </div>
