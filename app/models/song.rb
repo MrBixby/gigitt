@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
 
-  belong_to :band
+  belongs_to :album
   has_many :bandlists, through: :setlist
 
   def songs_list
