@@ -5,7 +5,7 @@ development:
   database: gigitt_development
   pool: 5
   username: justindoshay
-  password: N0m@rebs
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 test:
   adapter: postgresql
@@ -14,7 +14,7 @@ test:
   database: gigitt_test
   pool: 5
   username: justindoshay
-  password: N0m@rebs
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 production:
   adapter: postgresql
