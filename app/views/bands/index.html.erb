@@ -2,7 +2,9 @@
   <ul>
     <% @bands.each do |band| %>
       <li>
-        <%= link_to(band.name, band_path(band)) + ", " + band.city.capitalize + ", " + band.zip.to_s + " | " +band.genre %>
+        <%= link_to(band.name, band_path(band)) + ", " +
+        band.city.capitalize + ", " + band.zip.to_s + " | " +
+        band.genre %>
       </li>
     <% end %>
   <ul>

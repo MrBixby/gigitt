@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<br>
+<ul>
+  <b>Album:</b>
+  <li><%= @album.name %></li>
+  <ul>
+    <strong>Album</strong>
+  </ul>
+  <li><%= @album.title %></li>
+  <li><%= @album.comment %></li>
+  <li><%= @album.image_url %></li>
+</ul>
+
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<% else %>
+<%= link_to 'Back', album_path %>
+<% end %>

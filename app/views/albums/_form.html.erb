@@ -1,0 +1,6 @@
+<%= form_for @albums do |f| %>
+  <%= f.fields_for :albums do |builder| %>
+    <%= render 'album_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Album", f, :albums %>
+<% end %>
